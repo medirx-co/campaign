@@ -11,7 +11,6 @@
 <script src="vendor/svganimation/svg.animation.js"></script>
 
 <!-- Dashboard.php -->
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
     <script src="js/deznav-init.js"></script>
 <!-- Dashboard.php -->
 

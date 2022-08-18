@@ -15,6 +15,18 @@
                                                 <label class="mb-1"><strong>Organization Name</strong></label>
                                                 <input type="text" class="form-control" value="">
                                             </div>
+                                            <div class="input-group">
+                                                <input type="file" class="form-control" id="inputGroupFile02">
+                                                <label class="input-group-text" for="inputGroupFile02"><a href="">Upload</a></label>
+                                            </div>
+                                            <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                                <div class="form-group">
+                                                    <div class="form-check custom-control">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                        <label class="form-check-label" for="flexCheckChecked">Active</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="text-center">
                                              <button type="submit" class="btn btn-primary btn-block">Add</button>
                                             </div>
