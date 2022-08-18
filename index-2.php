@@ -773,6 +773,9 @@
 
 
 		</div>
+<?php
+	include_once('includes/header.php');
+?>
 
 		<!-- Javascript-->
 		
@@ -841,6 +844,4 @@
 				})(jQuery);
 			</script>
 		<!-- Javascript-->
-	</body>
-
-</html>
+	
