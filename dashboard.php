@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="keywords" content="" />
-        <meta name="author" content="" />
-        <meta name="robots" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:title" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:description" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:image" content="social-image.png" />
-        <meta name="format-detection" content="telephone=no">
-
-        <title>Dashboard</title>
-
-        <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-        <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
-        <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-        <link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-        
-        
-
-
-
-
-    </head>
-    <body>
+<?php
+	include_once('includes/header.php');
+?>
         <!-- Dashboard Start  -->
             <div class="container-fluid mt-3">
                 <div class="row">
@@ -49,7 +19,7 @@
                             </div>
                             <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
                                 <div class="card bg-success	overflow-hidden">
-                                    <div class="card-body pb-0 px-4 pt-4">
+                                    <div class="card-body pb-0 px-2 pt-3">
                                         <div class="row">
                                             <div class="col">
                                                 <h5 class="text-white mb-1">Live Campagins</h5>
@@ -61,7 +31,7 @@
                             </div>
                             <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
                                 <div class="card bg-info overflow-hidden">
-                                    <div class="card-body pb-0 px-4 pt-4">
+                                    <div class="card-body pb-0 px-2 pt-3">
                                         <div class="row">
                                             <div class="col">
                                                 <h5 class="text-white mb-1">Campagins</h5>
@@ -73,30 +43,10 @@
                             </div>
                             <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
                                 <div class="card bg-warning	overflow-hidden">
-                                    <div class="card-body pb-0 px-4 pt-4">
+                                    <div class="card-body pb-0 px-2 pt-3">
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="text-white mb-1">$14000</h5>
-                                                <span class="text-white">Total Eraning</span>
-                                            </div>
-                                            <div class="chart-wrapper px-2">
-                                                <canvas id="chart_widget_2" height="100"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
-                                <div class="card bg-warning	overflow-hidden">
-                                    <div class="card-body pb-0 px-4 pt-4">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h5 class="text-white mb-1">$14000</h5>
-                                                <span class="text-white">Total Eraning</span>
-                                            </div>
-                                            <div class="chart-wrapper px-2">
-                                                <canvas id="chart_widget_2" height="100"></canvas>
+                                                <h5 class="text-white mb-1">Compagins</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -152,24 +102,9 @@
 
 
 
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
-        <script src="vendor/global/global.min.js"></script>
-        <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-        <script src="vendor/chart.js/Chart.bundle.min.js"></script>
-        <script src="js/custom.min.js"></script>
-        <script src="js/deznav-init.js"></script>
-
-        <script src="vendor/apexchart/apexchart.js"></script>
-
-
-        <script src="vendor/peity/jquery.peity.min.js"></script>
-
-        <script src="vendor/chartist/js/chartist.min.js"></script>
-
-        <script src="js/dashboard/dashboard-1.js"></script>
-
-        <script src="vendor/svganimation/vivus.min.js"></script>
-        <script src="vendor/svganimation/svg.animation.js"></script>
+<?php
+	include_once('includes/footer.php');
+?>
         <script>
             function getUrlParams(dParam) {
                 var dPageURL = window.location.search.substring(1),
@@ -226,7 +161,4 @@
                 
             })(jQuery);
         </script>
-    </body>
-
-<!-- Mirrored from motaadmin.dexignlab.com/xhtml/table-datatable-basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jul 2022 04:48:24 GMT -->
-</html>
+   

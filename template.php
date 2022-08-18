@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100">
-
-    <!-- Mirrored from motaadmin.dexignlab.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jul 2022 04:48:24 GMT -->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="keywords" content="" />
-        <meta name="author" content="" />
-        <meta name="robots" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:title" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:description" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:image" content="social-image.png" />
-        <meta name="format-detection" content="telephone=no">
-
-        <title>Campaign Login Page</title>
-
-        <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-        <link href="css/style.css" rel="stylesheet">
-     </head>
-    
-     <body class="h-100">
+<?php
+	include_once('includes/header.php');
+?>
         <div class="authincation h-100">
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
@@ -55,13 +34,6 @@
                 </div>
             </div>
         </div>
-
-
-        <script src="vendor/global/global.min.js"></script>
-        <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-        <script src="js/custom.min.js"></script>
-        <script src="js/deznav-init.js"></script>
-    </body>
-
-    <!-- Mirrored from motaadmin.dexignlab.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jul 2022 04:48:24 GMT -->
-</html>
+<?php
+	include_once('includes/footer.php');
+?>

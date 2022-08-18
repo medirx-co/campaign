@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="keywords" content="" />
-        <meta name="author" content="" />
-        <meta name="robots" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:title" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:description" content="MotaAdmin - Bootstrap Admin Dashboard" />
-        <meta property="og:image" content="social-image.png" />
-        <meta name="format-detection" content="telephone=no">
-
-        <title>Chemist List</title>
-
-        <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-        <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
-        <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-        <link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Assign Licenses Table Start   -->
+<?php
+	include_once('includes/header.php');
+?>
+        <!-- Client Status Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
                 <!-- <div class="row page-titles mx-0">
@@ -47,9 +23,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Chemist List </h4>
+                                <h4 class="card-title"> Clients Table </h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                    <button type="submit" class="btn btn-primary btn-block"><a href="addclient.php" class="text-white"> Add Client</button></a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -58,23 +34,19 @@
                                         <thead>
                                             <tr>
                                                 <th>S.No.</th>
-                                                <th>Chemist</th>
-                                                <th>location</th>
-                                                <th>City</th>
-                                                <th>Pincode</th>
+                                                <th> Clients Name</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                                 </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th>1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <th></th>
-                                                <td></td>
+                                                <td>Client-1</td>
+                                                <td>Active</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Licenses</a>
                                                         <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
@@ -82,19 +54,28 @@
                                             </tr>
                                             <tr>
                                                 <th>1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <th></th>
-                                                <td></td>
+                                                <td>Client-1</td>
+                                                <td>Active</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Licenses</a>
                                                         <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Client-1</td>
+                                                <td>Active</td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Licenses</a>
+                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -105,25 +86,11 @@
             
             </section>
             
-        <!-- Assign Licenses Table End -->
+        <!-- Client Status End -->
         
-    
-
-
-
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
-        <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-        <script src="vendor/chart.js/Chart.bundle.min.js"></script>
-        <script src="js/custom.min.js"></script>
-        <script src="js/deznav-init.js"></script>
-
-        <script src="vendor/apexchart/apexchart.js"></script>
-
-        <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="js/plugins-init/datatables.init.js"></script>
-
-        <script src="vendor/svganimation/vivus.min.js"></script>
-        <script src="vendor/svganimation/svg.animation.js"></script>
+<?php
+	include_once('includes/footer.php');
+?>
         <script>
             function getUrlParams(dParam) {
                 var dPageURL = window.location.search.substring(1),
