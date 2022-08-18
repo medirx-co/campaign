@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
         <!-- Organization Start   -->
 
@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <h4 class="card-title">Organization Table </h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block"><a href="addorganization.php" class="text-white"> Add Organization</button></a>
+                                    <button type="submit" class="btn btn-primary btn-block"><a  href="javascript:void(0);" class="text-white" id="add_org"> Add Organization</button></a>
                                 </div>
                             </div>
                             <div class="card-body">
