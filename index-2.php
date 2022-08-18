@@ -693,7 +693,7 @@
 									<span class="nav-text">Organization</span>
 								</a>
 								<ul aria-expanded="false">
-									<li><a href="javascript:void(0);" class="all_org">All Organisation</a></li>
+									<li><a href="javascript:void(0);" id="all_org">All Organisation</a></li>
 									<li><a href="index.html">Analytics</a></li>
 									<!-- <li><a href="index-3.html">Mini Sidebar</a></li>
 									<li><a href="index-4.html">Sidebar</a></li> -->
@@ -757,10 +757,11 @@
 			<!-- Sidebar End  -->
 			<!--==================-->
 
-
-				<div id="div1">
-					<h1>Hello</h1>
+				<div class="content-body">
+					<div id="div1" class="container-fluid">
+					</div>
 				</div>
+				
 
 			<!-- Footer Start  -->
 				<div class="footer">
@@ -780,11 +781,25 @@
 		<!-- Javascript-->
 		
 		<script>
-			$(document).ready(function(){
-				$(".all_org").click(function(){
-					$("#div1").load("organizationtable.html");
-				});
+
+			function loadComponent(pageName) {
+				$("#div1").load(pageName+".php");
+			}
+			$(window).click(function(e){
+				var page = e.target.id;
+				console.log(e.target.id);
+				switch (page) {
+					case "all_org":
+						loadComponent("organizationtable");
+						break;
+					case "add_org":
+						loadComponent("addorganization");
+					break;
+					default:
+						break;
+				}
 			});
+			
 		</script>
 			
 			<script>
