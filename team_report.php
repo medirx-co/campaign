@@ -36,7 +36,7 @@
                                                 <th>No. of Cashback Generated</th>
                                                 <th>No. of Cashback Released</th>
                                                 <th>Total Released Invoice Value</th>
-                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
