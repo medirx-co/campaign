@@ -47,26 +47,26 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="row justify-content-center align-items-center mx-2">
-                                        <div class="col-3">
-                                            <div><a class="btn btn-rounded btn-success"><i class="bi bi-check-circle"></i></a></div>
-                                            POD  Upload
+                                    <div class="row mx-5">
+                                        <div class="col">
+                                            <img src="images/green-icon.png" alt="" class="text-center" style="width: 40px;">
+                                            <div>POD Upload</div>
                                         </div>
-                                        <div class="col-3">
-                                            <div><a class="btn btn-rounded btn-success"><i class="bi bi-check-circle"></i></a></div>
-                                            ASM Approved
+                                        <div class="col">
+                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
+                                            <div>POD Upload</div>
                                         </div>
-                                        <div class="col-3">
-                                            <div><a class="btn btn-rounded btn-success"><i class="bi bi-check-circle"></i></a></div>
-                                            Voucher ready to send
+                                        <div class="col">
+                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
+                                            <div>POD Upload</div>
                                         </div>
-                                        <div class="col-3">
-                                            <div><a class="btn btn-rounded btn-success"><i class="bi bi-check-circle"></i></a></div>
-                                            Completed
+                                        <div class="col">
+                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
+                                            <div>POD Upload</div>
                                         </div>
-                                        <div class="col-sm-12 justify-content-sm-end mt-4 mb-5 d-flex">
-                                            <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View POB</button></a>
-                                        </div>
+                                    </div>    
+                                    <div class="col p-md-0 justify-content-sm-end mt-2 mt-sm-0 mb-2 my-2 d-flex">
+                                        <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View POB</button></a>
                                     </div>
                                 </div>
                             </div>

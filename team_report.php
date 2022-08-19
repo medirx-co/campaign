@@ -1,7 +1,7 @@
 <?php
-	// include_once('includes/header.php');
+	include_once('includes/header.php');
 ?>
-        <!-- Cashback Report Start   -->
+        <!-- Team Report Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
                 <!-- <div class="row page-titles mx-0">
@@ -23,7 +23,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Cashback Report </h4>
+                                <h4 class="card-title">Team Report </h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -31,14 +31,11 @@
                                         <thead>
                                             <tr>
                                                 <th>S.No.</th>
-                                                <th>Chemist Name</th>
-                                                <th>City</th>
-                                                <th>PayTM Number</th>
                                                 <th>Employee Code</th>
-                                                <th>Cashback Code</th>
-                                                <th>Date</th>
-                                                <th>Cashback Value</th>
-                                                <th>Date Release</th>
+                                                <th>Employee Name</th>
+                                                <th>No. of Cashback Generated</th>
+                                                <th>No. of Cashback Released</th>
+                                                <th>Total Released Invoice Value</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -50,16 +47,6 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="#" class="btn btn-info shadow btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>2</th>
@@ -68,16 +55,6 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="#" class="btn btn-info shadow btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>3</th>
@@ -86,16 +63,6 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="#" class="btn btn-info shadow btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -107,7 +74,7 @@
             
             </section>
             
-        <!-- Cashback Report End -->
+        <!-- Team Report End -->
         
 <?php
 	include_once('includes/footer.php');
