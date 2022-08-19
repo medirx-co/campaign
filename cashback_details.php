@@ -64,6 +64,9 @@
                                             <div><a class="btn btn-rounded btn-success"><i class="bi bi-check-circle"></i></a></div>
                                             Completed
                                         </div>
+                                        <div class="col-sm-12 justify-content-sm-end mt-4 mb-5 d-flex">
+                                            <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View POB</button></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
