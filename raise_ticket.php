@@ -5,18 +5,25 @@
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
                     <div class="col-md-6">
-                        <div class="authincation-content">
+                        <div class="authincation-content mt-4">
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
-                                        
+                                    <h4 class="text-center mb-4">Raise Ticket</h4>
                                         <form action="">
                                             <div class="form-group">
-                                                <label class="mb-1"><strong> Client Name</strong></label>
+                                                <label class="mb-1"><strong> Subject</strong></label>
                                                 <input type="text" class="form-control" value="">
                                             </div>
+                                            <div class="form-group">
+                                                <a href="javascript:void()"><i class="fa fa-paperclip" style="font-size:30px;"></i><strong class="mx-2">Attachment</strong></a>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="mb-1"><strong>Problem Description</strong><span>(optional)</span></label>
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
                                             <div class="text-center">
-                                                <button type="submit" class="btn btn-primary btn-block">Add</button>
+                                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
                                             </div>
                                         </form>
                                     </div>
