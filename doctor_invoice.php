@@ -5,7 +5,8 @@
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
                     <div class="col-md-8">
-                        <div class="authincation-content">
+                        <div class="authincation-content mt-4">
+                            <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                             <a class="text-primary" href="javascript:void()"><h2 class="text-center pt-3"><u> Book Cetzine for your Doctor</u></a></h2>
                             <div class="row no-gutters">
                                 <div class="col-md-12">

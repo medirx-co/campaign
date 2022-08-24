@@ -24,6 +24,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h1 class="fs-1">Edit User </h1>
+                                <a class="d-block text-right p-2"><i class="fa fa-window-close text-danger mr-1" ></i></a>
                             </div>
                             <div class="card-body">
                                 <div class="row justify-content-center align-items-center">

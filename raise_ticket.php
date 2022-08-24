@@ -16,7 +16,7 @@
                                                 <input type="text" class="form-control" value="">
                                             </div>
                                             <div class="form-group">
-                                                <a href="javascript:void()"><i class="fa fa-paperclip" style="font-size:30px;"></i><strong class="mx-2">Attachment</strong></a>
+                                            <input type="file" id="myFile" name="filename">
                                             </div>
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Problem Description</strong><span>(optional)</span></label>

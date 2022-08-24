@@ -9,7 +9,7 @@
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
-                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" ></i></a>
+                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                                         <form action="">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Organization Name</strong></label>

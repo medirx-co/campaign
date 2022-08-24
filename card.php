@@ -5,7 +5,8 @@
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
                     <div class="col-xl-12">
-                        <div class="authincation-content">
+                        <div class="authincation-content mt-4">
+                            <a class="d-block text-right p-2"><i class="fa fa-window-close text-danger mr-1" ></i></a>
                             <h1 class="text-center pt-4">Generate Cashback</h1>
                             <div class="row no-gutters">
                                 <div class="col-xl-6">

@@ -5,10 +5,11 @@
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
                     <div class="col-md-6">
-                        <div class="authincation-content">
+                        <div class="authincation-content mt-4">
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
+                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" ></i></a>
                                         <h4 class="text-start mb-4">Campaign (Weblink)</h4>
                                         <form action="">
                                             <div class="form-group">

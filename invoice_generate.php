@@ -7,6 +7,7 @@
                     <div class="col-md-8">
                         <div class="authincation-content">
                             <a class="text-primary" href="javascript:void()"><h2 class="text-center pt-3"><u>Cetzine Invoice</u></a></h2>
+                            <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                             <div class="row no-gutters">
                                 <div class="col-md-12">
                                     <div class="auth-form">
