@@ -9,7 +9,7 @@
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
-                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
+                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                                         <form action="">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Organization Name</strong></label>
@@ -19,7 +19,6 @@
                                                 <label class="mb-1"><strong>Clients Name</strong></label>
                                                 <input type="text" class="form-control" value="">
                                             </div>
-                                            
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-primary btn-block">Add</button>
                                             </div>
@@ -39,6 +38,4 @@
         <script src="js/custom.min.js"></script>
         <script src="js/deznav-init.js"></script>
     </body>
-
-    <!-- Mirrored from motaadmin.dexignlab.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jul 2022 04:48:24 GMT -->
 </html>

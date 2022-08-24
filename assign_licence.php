@@ -3,7 +3,7 @@
 ?>
         <!-- Assign Licenses Table Start   -->
 
-            <section class="container-sm mt-2 mx-3 my-4">
+            <section class="container mt-2 mx-3 my-4 mx-auto">
                 <!-- <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
@@ -19,48 +19,39 @@
                     </div>
                 </div> -->
             
-                <div class="row align-items-center">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <!-- <h4 class="card-title"> Campaign Name : <span class="text-warning">DEMO</span></h4>
-                                <h4 class="card-title text-center">Organization : ORG-1 </h4>
-                                <h4 class="card-title text-end"> Client Name: Client-1</h4> -->
-                                <div class="row justify-space-between">
-                                    <div class="col-md-4 col-lg-4 col-12">
-                                        <h4> Campaign Name : <span class="text-warning">DEMO</span></h4>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4 col-12">
-                                        <h4>Organization : ORG-1 </h4>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4 col-12">
-                                        <h4> Client Name: Client-1</h4>
-                                    </div>
-                                </div>
-                                
+                                <h4 class="card-title"> Assign Licence </h4>
+                                <!-- <div class="text-end">
+                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                </div> -->
                             </div>
                             <div class="card-body">
-                                <div class="row">
-                                    
-                                    <div class="col-12 select-feature">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1"class="btn btn-danger btn-sm ">Features</option>
-                                            <option value="2"class="btn btn-danger btn-sm ">Product List</option>
-                                            <option value="3"class="btn btn-danger btn-sm ">logic</option>
-                                            <option value="4"class="btn btn-danger btn-sm ">Add Users</option>
-                                            
-                                        </select>
+                                <div class="row justify-content-center">
+                                    <div class="col-4 bg-secondary mx-1">
+                                            <div class="mt-4 mb-2">
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox ml-1">
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
+                                                        <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
-                                    <div class="col-12 button-feature">
-                                        <button type="button" class="btn btn-danger btn-sm ">Features</button>
-                                        <button type="button" class="btn btn-danger btn-sm ">Product List</button>
-                                        <button type="button" class="btn btn-danger btn-sm ">logic</button>
-                                        <button type="button" class="btn btn-danger btn-sm ">Add Users</button>
+                                    <div class="col-4 bg-secondary mx-1">
+                                    <div class="mt-4 mb-2">
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox ml-1">
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
+                                                        <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
-                                
                                 </div>
-
+                                
                             </div>
                         </div>
                     </div>
@@ -69,7 +60,6 @@
             </section>
             
         <!-- Assign Licenses Table End -->
-        
 <?php
 	include_once('includes/footer.php');
 ?>
@@ -129,4 +119,4 @@
                 
             })(jQuery);
         </script>
-    
+   
