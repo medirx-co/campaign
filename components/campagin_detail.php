@@ -1,23 +1,9 @@
 <?php
-	include_once('includes/header.php');
 ?>
         <!-- Assign Licenses Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
-                <!-- <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Datatable</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Organization</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Organization Table</a></li>
-                        </ol>
-                    </div>
-                </div> -->
+               
             
                 <div class="row align-items-center">
                     <div class="col-12">
@@ -71,7 +57,6 @@
         <!-- Assign Licenses Table End -->
         
 <?php
-	include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {

@@ -13,6 +13,17 @@
                                         <h4 class="text-start mb-4">Campaign (Weblink)</h4>
                                         <form action="">
                                             <div class="form-group">
+                                                <label class="mb-1"><strong>Client Name</strong></label>
+                                                
+                                                <select name="organisation" class="form-control" value="<?php //echo $clientData['org_id']; ?>">                                                    
+                                                    <?php 
+                                                        // foreach ($orgList->result as $index => $row):?>
+                                                        <option value="<?php //echo $row->id ?>"><?php //echo $row->name?></option>
+                                                    <?php //endforeach; ?>
+                                                    </select>
+                                              
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="mb-1"><strong>Enter Campaign Name</strong></label>
                                                 <input type="text" class="form-control" value="">
                                             </div>
@@ -29,17 +40,17 @@
                                                 </div>
                                                 <div class="form-group col-12">
                                                     <div class="custom-control custom-checkbox ml-1">
-                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
-                                                        <label class="custom-control-label" for="basic_checkbox_1">Cashback Card </label>
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_2">
+                                                        <label class="custom-control-label" for="basic_checkbox_2">Cashback Card </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-12">
                                                     <div class="custom-control custom-checkbox ml-1">
-                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
-                                                        <label class="custom-control-label" for="basic_checkbox_1"> Tampaltes</label>
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_3">
+                                                        <label class="custom-control-label" for="basic_checkbox_3"> Tamplates</label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>                                            
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-primary btn-block">Add</button>
                                             </div>
