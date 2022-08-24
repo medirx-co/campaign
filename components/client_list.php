@@ -33,7 +33,7 @@ $jsonResult = json_decode(file_get_contents($clientList));
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="example3" class="table table-hover table-responsive-sm" style="min-width: 845px">
+                                    <table id="example3" class="table table-hover table-responsive-sm table_hover" style="min-width: 845px">
                                         <thead>
                                             <tr>
                                                 <th>S.No.</th>
@@ -46,15 +46,15 @@ $jsonResult = json_decode(file_get_contents($clientList));
                                         <tbody>
                                             <?php foreach ($jsonResult->result as $index => $row):
                                             ?>
-                                            <tr>
+                                            <tr> 
                                                 <th><?php echo ++$index?></th>
-                                                <td><?php echo $row->name; ?></td>
+                                                <td><a href="/report/<?php echo $row->id?>"><?php echo $row->name; ?></a></td>
                                                 <td><?php echo $row->org_name; ?></td>
                                                 
                                                 <th class="<?php echo $row->is_active? 'text-success':'text-danger' ?>"><?php echo $row->is_active? "Active":"Inactive" ?></th>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
+                                                        <a href="/report" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
                                                         <a href="/edit_client/<?php echo $row->id?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
                                                         <a href="/del_client/<?php echo $row->id?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
                                                     </div>
@@ -134,5 +134,4 @@ $jsonResult = json_decode(file_get_contents($clientList));
         </script>
     </body>
 
-<!-- Mirrored from motaadmin.dexignlab.com/xhtml/table-datatable-basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jul 2022 04:48:24 GMT -->
 </html>

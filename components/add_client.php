@@ -48,14 +48,14 @@ if(isset($_POST['add_client'])) {
                                         <form action="" method="post">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Organization Name</strong></label>
-                                                <td>
+                                                
                                                 <select name="organisation" class="form-control" value="<?php echo $clientData['org_id']; ?>">                                                    
                                                     <?php 
                                                         foreach ($orgList->result as $index => $row):?>
                                                         <option value="<?php echo $row->id ?>"><?php echo $row->name?></option>
                                                     <?php endforeach; ?>
                                                     </select>
-                                                </td>
+                                              
                                             </div>
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Clients Name</strong></label>
