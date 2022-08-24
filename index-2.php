@@ -706,7 +706,7 @@
 								</a>
 								<ul aria-expanded="false">
 									<li><a href="/client_list" class="all_clients">All Clients</a></li>
-									<!-- <li><a href="/add_client">Add Client</a></li> -->
+									<li><a href="/add_client">Add Client</a></li>
 									<!-- <li><a href="index-3.html">Mini Sidebar</a></li>
 									<li><a href="index-4.html">Sidebar</a></li> -->
 								</ul>
@@ -717,8 +717,8 @@
 									<span class="nav-text">Campaigns</span>
 								</a>
 								<ul aria-expanded="false">
-									<li><a href="javascript:void(0);" class="all_org">All Campaign</a></li>
-									<li><a href="index.html">Analytics</a></li>
+									<li><a href="/campagin_list" class="all_org">All Campaign</a></li>
+									<li><a href="/add_campagin">Add Campagin</a></li>
 									<!-- <li><a href="index-3.html">Mini Sidebar</a></li>
 									<li><a href="index-4.html">Sidebar</a></li> -->
 								</ul>
@@ -769,6 +769,12 @@
 								case "client_list":
 								case "del_client":
 									include_once("components/client_list.php");
+									break;
+								case "campagin_list":
+									include_once("components/campagin_list.php");
+									break;
+								case "campagin_detail":
+									include_once("components/campagin_detail.php");
 									break;
 								case "edit_client":
 								case "add_client":

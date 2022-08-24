@@ -49,7 +49,7 @@ $jsonResult = json_decode(file_get_contents($clientList));
                                             <tr>
                                                 <th><?php echo ++$index?></th>
                                                 <td><?php echo $row->name; ?></td>
-                                                <td><?php echo $row->name; ?></td>
+                                                <td><?php echo $row->org_name; ?></td>
                                                 
                                                 <th class="<?php echo $row->is_active? 'text-success':'text-danger' ?>"><?php echo $row->is_active? "Active":"Inactive" ?></th>
                                                 <td>

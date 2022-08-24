@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
         <!-- Organization Start   -->
 
@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <h4 class="card-title">Campagin List</h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block"><a  href="javascript:void(0);" class="text-white" id="add_org"> Add Campaign</button></a>
+                                    <button type="submit" class="btn btn-primary btn-block"><a  href="/add_campagin" class="text-white" id="add_org"> Add Campaign</button></a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -35,45 +35,50 @@
                                             <tr>
                                                 <th>S.No.</th>
                                                 <th>Campaign Name</th>
+                                                <th>Client Name</th>
                                                 <th>Status</th>
+                                                <th>Active</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th>1</th>
                                                 <td>Campaign-1</td>
+                                                <td>Client-1</td>
                                                 <td>Active</td>
-                                                <!-- <td>
+                                                <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                        <a href="/campagin_detail" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
+                                                        <a href="/edit_client/<?php //echo $row->id?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
+                                                        <a href="/del_client/<?php //echo $row->id?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
                                                     </div>
-                                                </td> -->
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>1</th>
                                                 <td>Campaign-1</td>
+                                                <td>Client-1</td>
                                                 <td>Active</td>
-                                                <!-- <td>
+                                                <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                        <a href="javascript:void()" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
+                                                        <a href="/edit_client/<?php// echo $row->id?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
+                                                        <a href="/del_client/<?php //echo $row->id?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
                                                     </div>
-                                                </td> -->
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>1</th>
                                                 <td>Campaign-1</td>
+                                                <td>Client-1</td>
                                                 <td>Active</td>
-                                                <!-- <td>
+                                                <td>
                                                     <div class="d-flex">
                                                         <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
                                                         <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
-                                                </td> -->
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -88,7 +93,7 @@
         <!-- Organization End -->
         
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {
