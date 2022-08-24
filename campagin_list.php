@@ -23,7 +23,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Campagin List </h4>
+                                <h4 class="card-title">Campagin List</h4>
                                 <div class="text-end">
                                     <button type="submit" class="btn btn-primary btn-block"><a  href="javascript:void(0);" class="text-white" id="add_org"> Add Campaign</button></a>
                                 </div>

@@ -16,9 +16,9 @@
 			<!--Navbar Header Start  -->
 				<div class="nav-header">
 					<a href="#" class="brand-logo">
-						<img class="logo-abbr" src="images/logo-white.png" alt="">
+						<!-- <img class="logo-abbr" src="images/logo-white.png" alt="">
 						<img class="logo-compact" src="images/logo-text-white.png" alt="">
-						<img class="brand-title" src="images/logo-text-white.png" alt="">
+						<img class="brand-title" src="images/logo-text-white.png" alt=""> -->
 					</a>
 					<div class="nav-control">
 						<div class="hamburger">
