@@ -40,16 +40,38 @@
                                                 </div>
                                             </div>
                                     </div>
-                                    <div class="col-4 bg-secondary mx-1">
-                                    <div class="mt-4 mb-2">
+                                        <div class="col-4 bg-secondary mx-1">
+                                            <div class="mt-4 mb-2">
                                                 <div class="form-group">
                                                     <div class="custom-control custom-checkbox ml-1">
-                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_2">
+                                                        <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-4 bg-secondary mx-1">
+                                            <div class="mt-4 mb-2">
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox ml-1">
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_3">
                                                         <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
                                                     </div>
                                                 </div>
                                             </div>
                                     </div>
+                                        <div class="col-4 bg-secondary mx-1">
+                                            <div class="mt-4 mb-2">
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox ml-1">
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_4">
+                                                        <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                                 
                             </div>
