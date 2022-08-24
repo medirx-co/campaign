@@ -38,12 +38,15 @@ if(isset($_POST['add_organisation'])) {
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
                     <div class="col-md-6">
-                        <div class="authincation-content">
+                        <div class="authincation-content mt-4">
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
-                                        
+  
                                         <form action="" method="post" enctype="multipart/form-data">
+                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" ></i></a>
+                                        <form action="">
+
                                             <div class="form-group ">
                                                 <label class="mb-1"><strong>Organization Name</strong></label>
                                                 <input type="text" class="form-control" name="org_name" value="<?php echo $orgData['org_name']?>">
