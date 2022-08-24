@@ -1,3 +1,23 @@
+<?php 
+ob_start();
+define('BASE_API_URL', 'http://localhost/api');
+function curlRequest($url, $postFields) 
+{
+	# code...
+    $ch = curl_init();
+    $curlConfig = array(
+		CURLOPT_URL            => BASE_API_URL.$url,
+        CURLOPT_POST           => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POSTFIELDS     => $postFields
+    );
+    curl_setopt_array($ch, $curlConfig);
+    $result = curl_exec($ch);
+    $result = json_decode($result)->status;
+    curl_close($ch);
+    return $result;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,13 +36,13 @@
 
 		<title> Admin Dashboard</title>
 
-		<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-		<link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
-		<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
+		<link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+		<link href="/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/vendor/chartist/css/chartist.min.css">
+		<link href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
 		<!-- <link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet"> -->
-		<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+		<link href="/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 		<!-- BootStrap Icon-->

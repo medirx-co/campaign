@@ -693,8 +693,8 @@
 									<span class="nav-text">Organization</span>
 								</a>
 								<ul aria-expanded="false">
-									<li><a href="javascript:void(0);" id="all_org">All Organisation</a></li>
-									<li><a href="index.html">Analytics</a></li>
+									<li><a href="/org_list" id="all_org">All Organisation</a></li>
+									<li><a href="/add_org">Add Organisation</a></li>
 									<!-- <li><a href="index-3.html">Mini Sidebar</a></li>
 									<li><a href="index-4.html">Sidebar</a></li> -->
 								</ul>
@@ -705,8 +705,8 @@
 									<span class="nav-text">Clients</span>
 								</a>
 								<ul aria-expanded="false">
-									<li><a href="javascript:void(0);" class="all_org">All Clients</a></li>
-									<li><a href="index.html">Analytics</a></li>
+									<li><a href="/client_list" class="all_clients">All Clients</a></li>
+									<!-- <li><a href="/add_client">Add Client</a></li> -->
 									<!-- <li><a href="index-3.html">Mini Sidebar</a></li>
 									<li><a href="index-4.html">Sidebar</a></li> -->
 								</ul>
@@ -759,6 +759,29 @@
 
 				<div class="content-body">
 					<div id="div1" class="container-fluid">
+						<?php
+						
+							switch ($_REQUEST['pageName']?? null) {
+								case "org_list":
+								case "del_org":
+									include_once("components/org_list.php");
+									break;
+								case "client_list":
+								case "del_client":
+									include_once("components/client_list.php");
+									break;
+								case "edit_client":
+								case "add_client":
+									include_once("components/add_client.php");
+								break;
+								case "edit_org":
+								case "add_org":
+									include_once("components/add_org.php");
+								break;
+								default:
+									break;
+							}
+						?>
 					</div>
 				</div>
 				
@@ -782,23 +805,23 @@
 		
 		<script>
 
-			function loadComponent(pageName) {
-				$("#div1").load(pageName+".php");
-			}
-			$(window).click(function(e){
-				var page = e.target.id;
-				console.log(e.target.id);
-				switch (page) {
-					case "all_org":
-						loadComponent("organizationtable");
-						break;
-					case "add_org":
-						loadComponent("addorganization");
-					break;
-					default:
-						break;
-				}
-			});
+			// function loadComponent(pageName) {
+			// 	$("#div1").load(pageName+".php");
+			// }
+			// $(window).click(function(e){
+			// 	var page = e.target.id;
+			// 	console.log(e.target.id);
+			// 	switch (page) {
+			// 		case "all_org":
+			// 			loadComponent("organisationtable");
+			// 			break;
+			// 		case "add_org":
+			// 			loadComponent("addorganization");
+			// 		break;
+			// 		default:
+			// 			break;
+			// 	}
+			// });
 			
 		</script>
 			

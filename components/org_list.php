@@ -1,31 +1,34 @@
 <?php
-	// include_once('includes/header.php');
-?>
-        <!-- Organization Start   -->
 
-            <section class="container-sm mt-2 mx-3 my-4">
-                <!-- <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Datatable</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Organization</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Organization Table</a></li>
-                        </ol>
-                    </div>
-                </div> -->
-            
+
+if($_REQUEST['pageName'] == "del_org") {
+    $result = BASE_API_URL.'/organisation/delete/'.$_REQUEST['id'].'/';
+    $jsonResult = json_decode(file_get_contents($result));
+    // $result = curlRequest('/organisation/delete/'.$_REQUEST['id'].'/', null);   
+    
+    if($jsonResult) {
+        echo "<script>alert('Successfully Deleted!')</script>";
+        header('Location: /org_list');
+    }
+    else echo "<script>alert('Something went wrong!')</script>";
+}
+
+
+$orgList = BASE_API_URL.'/organisation/all/';
+// $jsonResult = json_decode(file_get_contents($orgList), true);
+$jsonResult = json_decode(file_get_contents($orgList));
+
+
+?>
+
+            <section class="container-sm mt-2 mx-3 my-4">            
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Organization Table </h4>
+                                <h4 class="card-title">Organisation Table </h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block"><a  href="javascript:void(0);" class="text-white" id="add_org"> Add Organization</button></a>
+                                    <button type="submit" class="btn btn-primary btn-block"><a  href="/add_org" class="text-white" id="add_org"> Add Organization</button></a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -35,47 +38,33 @@
                                             <tr>
                                                 <th>S.No.</th>
                                                 <th>Organization Name</th>
+                                                <th>Logo</th>
+                                                <th>Created At</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                                 </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($jsonResult->result as $index => $row):
+                                                # code...
+                                             
+                                                // print_r($value);
+                                            ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Organization-1</td>
-                                                <td>Active</td>
+                                                <th><?php echo ++$index;?></th>
+                                                <th><?php echo $row->name?></th>
+                                                <th><?php echo $row->logo?></th>
+                                                <th><?php echo $row->created_at?></th>
+                                                <th class="<?php echo $row->is_active? 'text-success':'text-danger' ?>"><?php echo $row->is_active? "Active":"Inactive" ?></th>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                        <a href="javascript:void()" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
+                                                        <a href="/edit_org/<?php echo $row->id?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
+                                                        <a href="/del_org/<?php echo $row->id?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Organization-1</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Organization-1</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php  endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -89,7 +78,7 @@
         <!-- Organization End -->
         
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {

@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule "(dashboard)$" index-2.php [NC,L]
+RewriteRule "(org_list|add_org|client_list|add_client|help_desk|raise_ticket|campaign_detail)$" index-2.php?pageName=$1 [NC,L]
+RewriteRule "(edit_org|del_org|edit_client|del_client)/(\d+)" index-2.php?pageName=$1&id=$2 [NC,L]
