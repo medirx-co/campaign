@@ -67,7 +67,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <th>1</th>
                                                 <td>Campaign-1</td>
                                                 <td>Client-1</td>
@@ -79,7 +79,7 @@
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
