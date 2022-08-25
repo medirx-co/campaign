@@ -16,7 +16,11 @@
                                                 <input type="text" class="form-control" value="">
                                             </div>
                                             <div class="form-group">
-                                            <input type="file" id="myFile" name="filename">
+                                                <label>
+                                                    <input type="file" id="file" style="display: none;">
+                                                    <img src="https://img.icons8.com/color/48/000000/upload-to-cloud.png"/>
+                                                     Upload
+                                                </label>
                                             </div>
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Problem Description</strong><span>(optional)</span></label>
