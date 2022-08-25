@@ -9,7 +9,7 @@
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
-                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" ></i></a>
+                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                                         <h4 class="text-start mb-4">Campaign (Weblink)</h4>
                                         <form action="">
                                             <div class="form-group">

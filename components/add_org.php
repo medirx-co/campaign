@@ -50,11 +50,14 @@ if(isset($_POST['add_organisation'])) {
                                                 <label class="mb-1"><strong>Organization Name</strong></label>
                                                 <input type="text" class="form-control" name="org_name" value="<?php echo $orgData['org_name']?>">
                                             </div>
-                                            <div class="input-group">
-                                                <input type="file" class="form-control" id="inputGroupFile02" name="org_logo" accept="image/*">
-                                                <label class="input-group-text" for="inputGroupFile02"></label>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="file" id="file" style="display: none;">
+                                                    <img src="images/upload-image.png"/>
+                                                     Image
+                                                </label>
                                             </div>
-                                            <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                            <div class="form-row d-flex justify-content-between mt-2 mb-2">
                                                 <div class="form-group">
                                                     <div class="form-check custom-control">
                                                         <input class="form-check-input" type="checkbox" id="flexCheckChecked" <?php echo $orgData['isActive'] ? 'checked' : '' ?> name="isActive" value="1">
