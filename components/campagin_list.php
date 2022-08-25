@@ -1,23 +1,11 @@
 <?php
-	// include_once('includes/header.php');
+	$campaginList = BASE_API_URL.'/campagin/all/';
+    // $jsonResult = json_decode(file_get_contents($orgList), true);
+    $jsonResult = json_decode(file_get_contents($campaginList));
 ?>
         <!-- Organization Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
-                <!-- <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Datatable</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Organization</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Organization Table</a></li>
-                        </ol>
-                    </div>
-                </div> -->
             
                 <div class="row">
                     <div class="col-12">
@@ -41,45 +29,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($jsonResult->result as $index => $row):
+                                            ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Campaign-1</td>
-                                                <td>Client-1</td>
-                                                <td>Active</td>
+                                                <th><?php echo ++$index; ?></th>
+                                                <td><?php echo $row->name; ?></td>
+                                                <td><?php echo $row->client_name; ?></td>
+                                                <th class="<?php echo $row->is_active? 'text-success':'text-danger' ?>"><?php echo $row->is_active? "Active":"Inactive" ?></th>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="/campagin_detail" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
-                                                        <a href="/edit_client/<?php //echo $row->id?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
-                                                        <a href="/del_client/<?php //echo $row->id?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
+                                                        <a href="/edit_campagin/<?php echo $row->id; ?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
+                                                        <a href="/del_campagin/<?php echo $row->id; ?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Campaign-1</td>
-                                                <td>Client-1</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="javascript:void()" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
-                                                        <a href="/edit_client/<?php// echo $row->id?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
-                                                        <a href="/del_client/<?php //echo $row->id?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Campaign-1</td>
-                                                <td>Client-1</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1">View Clients</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
