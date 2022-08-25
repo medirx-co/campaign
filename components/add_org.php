@@ -53,11 +53,11 @@ if(isset($_POST['add_organisation'])) {
                                             <div class="form-group">
                                                 <label>
                                                     <input type="file" id="file" style="display: none;">
-                                                    <img src="https://img.icons8.com/color/48/000000/upload-to-cloud.png"/>
-                                                     Upload
+                                                    <img src="images/upload-image.png"/>
+                                                     Image
                                                 </label>
                                             </div>
-                                            <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                            <div class="form-row d-flex justify-content-between mt-2 mb-2">
                                                 <div class="form-group">
                                                     <div class="form-check custom-control">
                                                         <input class="form-check-input" type="checkbox" id="flexCheckChecked" <?php echo $orgData['isActive'] ? 'checked' : '' ?> name="isActive" value="1">
