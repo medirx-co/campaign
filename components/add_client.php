@@ -43,11 +43,11 @@ if(isset($_POST['add_client'])) {
                                     <div class="auth-form">
 
 
-                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" ></i></a>
+                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
 
                                         <form action="" method="post">
                                             <div class="form-group">
-                                                <label class="mb-1"><strong>Organization Name</strong></label>
+                                                <label class="mb-1"><strong>Client Name</strong></label>
                                                 
                                                 <select name="organisation" class="form-control" value="<?php echo $clientData['org_id']; ?>">                                                    
                                                     <?php 
@@ -69,8 +69,68 @@ if(isset($_POST['add_client'])) {
                                                     </div>
                                                 </div>
                                             </div>
+                                           
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="switcher">
+                                                            <label for="toggle-0"><strong>Mininimum Cashback Card</strong>
+                                                                <input type="checkbox" id="toggle-0"/>
+                                                                <span><small></small></span>
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" name="" id="" class="form-control">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="switcher">
+                                                            <label for="toggle-1"><strong>Mininimum Invoice Amount</strong>
+                                                                <input type="checkbox" id="toggle-1"/>
+                                                                <span><small></small></span>
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" name="" id="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="switcher">
+                                                            <label for="toggle-2"><strong>Mininimum Cashback Amt</strong>
+                                                                <input type="checkbox" id="toggle-2"/>
+                                                                <span><small></small></span>
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" name="" id="" class="form-control">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="switcher">
+                                                            <label for="toggle-3"><strong>Mininimum Product Qty.(overall)</strong>
+                                                                <input type="checkbox" id="toggle-3"/>
+                                                                <span><small></small></span>
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" name="" id="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="switcher">
+                                                            <label for="toggle-4"><strong>Validation Team</strong>
+                                                                <input type="checkbox" id="toggle-4"/>
+                                                                <span><small></small></span>
+                                                            </label>
+                                                        </div>
+                                                        <input type="text" name="" id="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                               
                                             <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block" name="<?php echo $clientId ? "edit_client": "add_client" ?>"> <?php echo ($clientId ? "Upadte" : "Add")?></button>
+                                                <button type="submit" class="btn btn-primary btn-block" name="<?php echo $clientId ? "edit_client": "add_client" ?>"> <?php echo ($clientId ? "Upadte" : "Add")?></button>
                                             </div>
                                         </form>
                                     </div>
@@ -87,6 +147,14 @@ if(isset($_POST['add_client'])) {
         <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="js/custom.min.js"></script>
         <script src="js/deznav-init.js"></script> -->
+        <script>
+            $(document).ready(function() {
+                $('.switch__label').click(function() {
+                    $('body').toggleClass('switch-bg');    
+                    $('.switch').toggleClass('switch-border');    
+                });
+            });
+        </script>
     </body>
 
 </html>
