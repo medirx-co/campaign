@@ -2,9 +2,9 @@
 	include_once('includes/header.php');
 ?>
     
-        <div class="authincation h-100">
-            <div class="container h-100">
-                <div class="row justify-content-center h-100 align-items-center">
+        <div class="authincation" style="display: flex;justify-content: center;align-items: center;height: 100vh;">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
                     <div class="col-md-6">
                         <div class="authincation-content mt-4">
                             <div class="row no-gutters">
@@ -21,14 +21,14 @@
                                                 <label class="mb-1"><strong>Password</strong></label>
                                                 <input type="password" class="form-control" value="">
                                             </div>
-                                            <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                            <!-- <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                                 <div class="form-group">
                                                     <div class="custom-control custom-checkbox ml-1">
                                                         <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
                                                         <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
                                             </div>
