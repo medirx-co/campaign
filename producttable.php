@@ -1,7 +1,7 @@
 <?php
 	include_once('includes/header.php');
 ?>
-        <!-- Assign Licenses Table Start   -->
+        <!-- Product Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
                 <!-- <div class="row page-titles mx-0">
@@ -71,7 +71,7 @@
             
             </section>
             
-        <!-- Assign Licenses Table End -->
+        <!-- Product Table End -->
 <?php
 	include_once('includes/footer.php');
 ?>
