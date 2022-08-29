@@ -48,6 +48,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
+                                    <!-- all features start -->
+                                            
+                                    <!-- all features end -->
+                                    
                                     <!-- all users start -->
                                             
                                     <!-- all useres end -->
@@ -125,3 +129,4 @@
             })(jQuery);
         </script>
     
+    <!-- custom script -->
