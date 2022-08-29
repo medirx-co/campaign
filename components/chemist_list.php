@@ -1,86 +1,89 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
-        <!-- Cashback Report Start   -->
+        <!-- Assign Licenses Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
-                <div class="row page-titles mx-0">
+                <!-- <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Dr Gouranga Sardar</h4>
-                            <span>9734544201</span>
-                            <p>Kolkata</p>
-                            <p>Stokist: New united Agency</p>
+                            <h4>Hi, welcome back!</h4>
+                            <span>Datatable</span>
                         </div>
                     </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mb-5 d-flex">
-                       <h5>6-Jul</h5>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Organization</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Organization Table</a></li>
+                        </ol>
                     </div>
-                </div>
+                </div> -->
             
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"> Chemist List </h4>
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example3" class="table table-hover table-responsive-sm" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>Product Name</th>
-                                                <th>Qty</th>
-                                                <th>Amount</th>
-                                                <th>Cashback Vlaue</th>
-                                            </tr>
+                                                <th>S.No.</th>
+                                                <th>Chemist</th>
+                                                <th>location</th>
+                                                <th>City</th>
+                                                <th>Pincode</th>
+                                                <th>Action</th>
+                                                </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th>Med-1</th>
+                                                <th>1</th>
                                                 <td></td>
                                                 <td></td>
+                                                <th></th>
                                                 <td></td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <th>Med-2</th>
+                                                <th>1</th>
                                                 <td></td>
                                                 <td></td>
+                                                <th></th>
                                                 <td></td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="/generate_cbc" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </td>
                                             </tr>
+                                            
                                         </tbody>
                                     </table>
-                                    <div class="row mx-5">
-                                        <div class="col">
-                                            <img src="images/green-icon.png" alt="" class="text-center" style="width: 40px;">
-                                            <div>POD Upload</div>
-                                        </div>
-                                        <div class="col">
-                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
-                                            <div>POD Upload</div>
-                                        </div>
-                                        <div class="col">
-                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
-                                            <div>POD Upload</div>
-                                        </div>
-                                        <div class="col">
-                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
-                                            <div>POD Upload</div>
-                                        </div>
-                                    </div>    
-                                    <div class="col p-md-0 justify-content-sm-end mt-2 mt-sm-0 mb-2 my-2 d-flex">
-                                        <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View POB</button></a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             
             </section>
             
-        <!-- Cashback Report End -->
-        
+        <!-- Assign Licenses Table End -->
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {
@@ -138,3 +141,4 @@
                 
             })(jQuery);
         </script>
+   

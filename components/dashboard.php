@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
         <!-- Dashboard Start  -->
             <div class="container-fluid mt-3">
@@ -103,7 +103,7 @@
 
 
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {

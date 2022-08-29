@@ -47,6 +47,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
+<<<<<<< HEAD
+                                    <!-- all features start -->
+                                            
+                                    <!-- all features end -->
+                                    
+                                    <!-- all users start -->
+=======
                                         
                                         <!-- Feature Table Start   -->
 
@@ -65,6 +72,7 @@
                                                         </ol>
                                                     </div>
                                                 </div> -->
+>>>>>>> 5dfbb0e7422a836d6e21d40745e3ff586d9f0aec
                                             
                                                 <div class="row">
                                                     <div class="col-12">
@@ -377,6 +385,10 @@
                 
             });
         </script>
+<<<<<<< HEAD
+    
+    <!-- custom script -->
+=======
    
     <!-- Custom Js Start -->
         <script>
@@ -445,3 +457,4 @@
             }
         </script>
     <!-- Custom Js End -->
+>>>>>>> 5dfbb0e7422a836d6e21d40745e3ff586d9f0aec

@@ -20,7 +20,7 @@ function curlRequest($url, bool $isPOST = false, $postFields = null) {
 	}
     curl_setopt_array($ch, $curlConfig);
     $result = curl_exec($ch);
-    // $result = json_decode($result)->status;
+    $result = json_decode($result);
     curl_close($ch);
     return $result;
 }

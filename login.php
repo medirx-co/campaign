@@ -1,5 +1,20 @@
 <?php
 	include_once('includes/header.php');
+
+    $verifyLogin = array(
+        'username' => $_POST['username'] ?? $verifyLogin->name ?? null,
+        'password' => $_POST['password'] ?? $verifyLogin->password ?? null
+    );
+
+    if(isset($_REQUEST['login'])) {
+        $result = curlRequest('/user/login/', true, $verifyLogin);
+        // print_r($result);
+        if($result->status == 'success'){
+            header('Location: /dashboard');
+            echo "<script>alert('Login Successful!')</script>";
+
+        } else echo "<script>alert('Something went wrong!')</script>";
+    }
 ?>
     
         <div class="authincation" style="display: flex;justify-content: center;align-items: center;height: 100vh;">
@@ -12,14 +27,14 @@
                                     <div class="auth-form">
                                         <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                                         <h4 class="text-center mb-4">Login in your account</h4>
-                                        <form action="index-2.php">
+                                        <form action="" method="post">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Username</strong></label>
-                                                <input type="text" class="form-control" value="">
+                                                <input type="text" class="form-control" value="" name="username">
                                             </div>
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Password</strong></label>
-                                                <input type="password" class="form-control" value="">
+                                                <input type="password" class="form-control" value="" name="password">
                                             </div>
                                             <!-- <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                                 <div class="form-group">
@@ -30,7 +45,7 @@
                                                 </div>
                                             </div> -->
                                             <div class="text-center">
-                                                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                                                <button type="submit" name = "login" class="btn btn-primary btn-block">Log In</button>
                                             </div>
                                         </form>
                                     </div>

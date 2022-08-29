@@ -1,23 +1,12 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
+
+    $url = '/campaign/all/';
+    $jsonResult = curlRequest($url);
 ?>
-        <!-- Doctor list Table Start   -->
+        <!-- campagin list Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
-                <!-- <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Datatable</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Organization</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Organization Table</a></li>
-                        </ol>
-                    </div>
-                </div> -->
             
                 <div class="row">
                     <div class="col-12">
@@ -25,7 +14,7 @@
                             <div class="card-header">
                                 <h4 class="card-title"> Active Campagin </h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                    <!-- <button type="submit" class="btn btn-primary btn-block">Add New</button> -->
                                 </div>
                             </div>
                             <div class="card-body">
@@ -39,25 +28,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($jsonResult->result as $index => $row):
+                                            ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td>camp-1</td>
+                                                <th><?php echo ++$index; ?></th>
+                                                <td><?php echo $row->name; ?></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> View Clients</a>
+                                                        <a href="/choose/<?php echo $row->id; ?>" class="text-info shadow p-1 mx-1"> View Details</a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>camp-2</td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> View Clients</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
