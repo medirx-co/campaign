@@ -1,7 +1,7 @@
 <?php
 	// include_once('includes/header.php');
 ?>
-        <!-- Organization Start   -->
+        <!-- All Users Start -->
 
             <section class="container-sm mt-2 mx-3 my-4">
                 <!-- <div class="row page-titles mx-0">
@@ -80,7 +80,7 @@
             
             </section>
             
-        <!-- Organization End -->
+        <!-- All Users End -->
         
 <?php
 	include_once('includes/footer.php');
