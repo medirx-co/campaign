@@ -4,8 +4,8 @@
 // print_r($_REQUEST);
 $orgId = $_REQUEST['id'] ?? null;
 if($orgId) {
-    $getOrgData = BASE_API_URL."/organisation/get/$orgId/";
-    $orgDataResult = json_decode(file_get_contents($getOrgData))->result;
+    $getOrgData = "/organisation/get/$orgId/";
+    $orgDataResult = json_decode(curlRequest($getOrgData))->result;
     // print_r($orgDataResult);
 }
 
@@ -21,12 +21,12 @@ $orgData['isActive'] = (!empty($orgId) && empty($_POST['isActive']))? 0: $orgDat
 
 if(isset($_POST['add_organisation'])) {
     // print_r($_POST['isActive']);
-    $result = curlRequest('/organisation/add/', $orgData);
+    $result = curlRequest('/organisation/add/', true, $orgData);
     if($result) echo "<script>alert('Successfully added!')</script>";
     else echo "<script>alert('Something went wrong!')</script>";
     
 } else if(isset($_POST['edit_org'])) {
-    $result = curlRequest('/organisation/update/'.$_REQUEST['id'].'/', $orgData);
+    $result = curlRequest('/organisation/update/'.$_REQUEST['id'].'/', true, $orgData);
     // print_r($_REQUEST);
     
     if($result) echo "<script>alert('Successfully Edited!')</script>";

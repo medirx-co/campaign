@@ -13,9 +13,8 @@
     }
 
 
-$clientList = BASE_API_URL.'/client/all/';
-// $jsonResult = json_decode(file_get_contents($orgList), true);
-$jsonResult = json_decode(file_get_contents($clientList));
+$clientList = '/client/all/';
+$jsonResult = json_decode(curlRequest($clientList));
 
 ?>
         <!-- Client Status Start   -->

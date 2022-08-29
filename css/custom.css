@@ -2,3 +2,8 @@
     background-color: rgba(237, 237, 237, 0.889) !important;
     cursor: pointer;
 }
+
+input:disabled, select:disabled {
+    background-color: #bdbdbd54 !important;
+    cursor: not-allowed;
+}

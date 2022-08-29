@@ -1,19 +1,26 @@
 <?php 
 ob_start();
-define('BASE_API_URL', 'http://localhost/api');
-function curlRequest($url, $postFields) 
-{
-	# code...
+define('BASE_API_URL', 'https://staging.tecmetis.com/api');
+
+function curlRequest($url, bool $isPOST = false, $postFields = null) {
     $ch = curl_init();
-    $curlConfig = array(
-		CURLOPT_URL            => BASE_API_URL.$url,
-        CURLOPT_POST           => true,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POSTFIELDS     => $postFields
-    );
+	$curlConfig = [
+		CURLOPT_URL            		=> BASE_API_URL.$url,
+		CURLOPT_RETURNTRANSFER 		=> true,
+		CURLOPT_ENCODING 			=> '',
+		CURLOPT_MAXREDIRS 			=> 10,
+		CURLOPT_TIMEOUT 			=> 0,
+		CURLOPT_FOLLOWLOCATION 		=> true,
+		CURLOPT_HTTP_VERSION 		=> CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST 		=> 'GET',
+	];
+	if ($isPOST) {
+		$curlConfig[CURLOPT_CUSTOMREQUEST] = 'POST';
+		$curlConfig[CURLOPT_POSTFIELDS] = $postFields;
+	}
     curl_setopt_array($ch, $curlConfig);
     $result = curl_exec($ch);
-    $result = json_decode($result)->status;
+    // $result = json_decode($result)->status;
     curl_close($ch);
     return $result;
 }

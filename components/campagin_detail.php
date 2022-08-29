@@ -42,10 +42,18 @@
                                         <button type="button" class="btn btn-danger btn-sm ">Features</button>
                                         <button type="button" class="btn btn-danger btn-sm ">Product List</button>
                                         <button type="button" class="btn btn-danger btn-sm ">logic</button>
-                                        <button type="button" class="btn btn-danger btn-sm ">Add Users</button>
+                                        <button type="button" class="btn btn-danger btn-sm ">All Users</button>
                                     </div>
                                 
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                    <!-- all users start -->
+                                            
+                                    <!-- all useres end -->
+                                    </div>
+                                </div>
+                               
 
                             </div>
                         </div>
@@ -55,6 +63,8 @@
             </section>
             
         <!-- Assign Licenses Table End -->
+
+       
         
 <?php
 ?>
