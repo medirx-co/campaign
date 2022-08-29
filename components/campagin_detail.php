@@ -1,6 +1,6 @@
 <?php
 ?>
-        <!-- Assign Licenses Table Start   -->
+        <!-- Campagin Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
                
@@ -14,7 +14,7 @@
                                 <h4 class="card-title text-end"> Client Name: Client-1</h4> -->
                                 <div class="row justify-space-between">
                                     <div class="col-md-4 col-lg-4 col-12">
-                                        <h4> Campaign Name : <span class="text-warning">DEMO</span></h4>
+                                        <h4> Campagin Name : <span class="text-warning">DEMO</span></h4>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-12">
                                         <h4>Organization : ORG-1 </h4>
@@ -29,12 +29,11 @@
                                 <div class="row">
                                     
                                     <div class="col-12 select-feature">
-                                        <select class="form-select" aria-label="Default select example" id="mySelect">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1"class="btn btn-danger btn-sm " id="sm-features" onclick="showSmFeatures();">Features</option>
-                                            <option value="2"class="btn btn-danger btn-sm " id="sm-productlist" onclick="showSmProduct();">Product List</option>
-                                            <option value="3"class="btn btn-danger btn-sm " id="sm-logics" onclick="showSmLogic();">Logic</option>
-                                            <option value="4"class="btn btn-danger btn-sm " id="sm-addusers" onclick="showSmAddUsers();">Add Users</option>
+                                        <select class="form-select" aria-label="Default select example" id="mySelect" onchange="showVal();">
+                                            <option class="btn btn-danger btn-sm ">Features</option>
+                                            <option class="btn btn-danger btn-sm " >Product List</option>
+                                            <option class="btn btn-danger btn-sm " >Logic</option>
+                                            <option class="btn btn-danger btn-sm " >All Users</option>
                                             
                                         </select>
                                     </div>
@@ -51,7 +50,7 @@
                                         
                                         <!-- Feature Table Start   -->
 
-                                            <section class="container-sm mt-2 mx-3 my-4" id="Features" id="sm-feature" style="display:none;">
+                                            <section class="container-sm mt-2 mx-3 my-4" id="Features"  style="display:none;">
                                                 <!-- <div class="row page-titles mx-0">
                                                     <div class="col-sm-6 p-md-0">
                                                         <div class="welcome-text">
@@ -123,7 +122,7 @@
 
                                         <!-- Product Table Start   -->
 
-                                            <section class="container-sm mt-2 mx-3 my-4" id="Product"  id="sm-product" style="display:none;">
+                                            <section class="container-sm mt-2 mx-3 my-4" id="Product"   style="display:none;">
                                                 <!-- <div class="row page-titles mx-0">
                                                     <div class="col-sm-6 p-md-0">
                                                         <div class="welcome-text">
@@ -195,7 +194,7 @@
 
                                         <!-- All Users Start -->
 
-                                            <section class="container-sm mt-2 mx-3 my-4" id="AllUsers" id="sm-adduser" style="display:none;">
+                                            <section class="container-sm mt-2 mx-3 my-4" id="AllUsers"  style="display:none;">
                                                 <!-- <div class="row page-titles mx-0">
                                                     <div class="col-sm-6 p-md-0">
                                                         <div class="welcome-text">
@@ -274,7 +273,7 @@
                                         
                                         <!-- All Users End -->
                                         <!-- Logic Start -->
-                                            <section class="container-sm mt-2 mx-3 my-4" id="logic" id="sm-logic" style="display:none;">
+                                            <section class="container-sm mt-2 mx-3 my-4" id="logic" style="display:none;">
                                                 <div class="authincation h-100" >
                                                     <div class="container h-100">
                                                         <div class="row justify-content-center h-100 align-items-center">
@@ -283,16 +282,16 @@
                                                                     <div class="row no-gutters">
                                                                         <div class="col-xl-12">
                                                                             <div class="auth-form">
-                                                                                <div class="col-8 d-flex justify-content-sm-end">
-                                                                                    <button type="submit" class="btn btn-primary btn-sm btn-block">Add Logic</button>
+                                                                                <div class="">
+                                                                                    <button type="submit" class="btn btn-primary shadow btn-sm"><a href="#" class="text-white"> Add Logic </button></a>
                                                                                 </div>
                                                                                 <form action="">
                                                                                     <div class="form-group ">
-                                                                                        <label class="mb-1"><strong>Logic Name</strong></label>
+                                                                                        <label class="mb-1 mt-2"><strong>Logic Name</strong></label>
                                                                                         <input type="text" class="form-control" value="">
                                                                                     </div>
                                                                                     <div class="text-center">
-                                                                                    <button type="submit" class="btn btn-primary btn-block">Add</button>
+                                                                                        <button type="submit" class="btn btn-primary btn-block">Add</button>
                                                                                     </div>
                                                                                 </form>
                                                                             </div>
@@ -316,7 +315,7 @@
             
             </section>
             
-        <!-- Assign Licenses Table End -->
+        <!-- Campagin Table End -->
 
        
         
@@ -381,36 +380,41 @@
    
     <!-- Custom Js Start -->
         <script>
-           
-            // function showSmFeatures() {
-            //     document.getElementById("sm-feature").style.display = "block";
-            //     document.getElementById("sm-product").style.display = "none";
-            //     document.getElementById("sm-logic").style.display = "none";
-            //     document.getElementById("sm-adduser").style.display = "none";
+            function showVal() {
+                var mySelecVal = document.getElementById('mySelect').value;
+                switch (mySelecVal) {
+                case 'Features':
+                    showFeatures();
+                    break;
+                case 'Product List':
+                    showProduct();
+                    break;
+                case 'Logic':
+                    showLogic();
+                    break;
+                case 'All Users':
+                    showAllUsers();
+                    break;
+                default:
+                showFeatures();
+                    break;
+                }
             
-            // }
+                // console.log(mySelecVal);
+                // if(mySelecVal == 'Features') {
+                //     showFeatures();
+                //     console.log(mySelecVal);
+                // } elseif(mySelecVal == 'Features'){
 
-            // function showSmProduct () {
-            //     document.getElementById("sm-feature").style.display = "none";
-            //     document.getElementById("sm-product").style.display = "block";
-            //     document.getElementById("sm-logic").style.display = "none";
-            //     document.getElementById("sm-adduser").style.display = "none";  
-            // }
+                // } elseif() {
 
-            // function showSmLogic () {
-            //     document.getElementById("sm-feature").style.display = "none";
-            //     document.getElementById("sm-product").style.display = "none";
-            //     document.getElementById("sm-logic").style.display = "block";
-            //     document.getElementById("sm-adduser").style.display = "none";
-            // }
+                // } elseif(){
 
-            // function showSmAddUsers () {
-            //     document.getElementById("sm-feature").style.display = "none";
-            //     document.getElementById("sm-product").style.display = "none";
-            //     document.getElementById("sm-logic").style.display = "none";
-            //     document.getElementById("sm-adduser").style.display = "block"; 
-            // }
-
+                // }else {
+                //     showFeatures();
+                // }
+            }
+           
             function showFeatures() {
                 document.getElementById("Features").style.display = "block";
                 document.getElementById("Product").style.display = "none";
