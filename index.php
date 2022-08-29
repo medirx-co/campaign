@@ -1,5 +1,5 @@
 <script>
     window.onload = () => {
-        location.href = "page-login.php";
+        location.href = "login.php";
     }
 </script>
