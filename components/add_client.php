@@ -40,11 +40,8 @@ if(isset($_POST['add_client'])) {
                         <div class="authincation-content mt-4">
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
-                                    <div class="auth-form">
-
-
-                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
-
+                                    <div class="auth-form p-5">
+                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
                                         <form action="" method="post">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Client Name</strong></label>
