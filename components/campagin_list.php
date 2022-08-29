@@ -1,7 +1,7 @@
 <?php
-	$campaginList = BASE_API_URL.'/campagin/all/';
+	$url = '/campaign/all/';
     // $jsonResult = json_decode(file_get_contents($orgList), true);
-    $jsonResult = json_decode(file_get_contents($campaginList));
+    $jsonResult = json_decode(curlRequest($url));
 ?>
         <!-- Organization Start   -->
 

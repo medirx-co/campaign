@@ -2,8 +2,8 @@
 
 $clientId = $_REQUEST['id'] ?? null;
 if($clientId) {
-    $getClientData = BASE_API_URL."/client/get/$clientId/";
-    $clientDataResult = json_decode(file_get_contents($getClientData))->result;
+    $getClientData = "/client/get/$clientId/";
+    $clientDataResult = json_decode(curlRequest($getClientData))->result;
     // print_r($orgDataResult);
 }
 
@@ -17,12 +17,12 @@ $clientData['isActive'] = (!empty($orgId) && empty($_POST['isActive']))? 0: $cli
 // print_r($_REQUEST);
 if(isset($_POST['add_client'])) {
     // print_r($_POST['isActive']);
-    $result = curlRequest('/client/add/', $clientData);
+    $result = curlRequest('/client/add/', true, $clientData);
     if($result) echo "<script>alert('Successfully added!')</script>";
     else echo "<script>alert('Something went wrong!')</script>";
     
 } else if(isset($_POST['edit_client'])) {
-    $result = curlRequest('/client/update/'.$_REQUEST['id'].'/', $clientData);
+    $result = curlRequest('/client/update/'.$_REQUEST['id'].'/', true, $clientData);
     
     
     if($result) echo "<script>alert('Successfully Edited!')</script>";
@@ -30,8 +30,8 @@ if(isset($_POST['add_client'])) {
 }
 
     //for dropdown
-    $orgList = BASE_API_URL.'/organisation/all/';
-    $orgList = json_decode(file_get_contents($orgList));
+    $orgList = '/organisation/all/';
+    $orgList = json_decode(curlRequest($orgList));
 ?>
         <div class="authincation h-100">
             <div class="container h-100">
@@ -70,65 +70,7 @@ if(isset($_POST['add_client'])) {
                                                 </div>
                                             </div>
                                            
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="switcher">
-                                                            <label for="toggle-0"><strong>Mininimum Cashback Card</strong>
-                                                                <input type="checkbox" id="toggle-0"/>
-                                                                <span><small></small></span>
-                                                            </label>
-                                                        </div>
-                                                        <input type="text" name="" id="" class="form-control">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="switcher">
-                                                            <label for="toggle-1"><strong>Mininimum Invoice Amount</strong>
-                                                                <input type="checkbox" id="toggle-1"/>
-                                                                <span><small></small></span>
-                                                            </label>
-                                                        </div>
-                                                        <input type="text" name="" id="" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                           
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="switcher">
-                                                            <label for="toggle-2"><strong>Mininimum Cashback Amt</strong>
-                                                                <input type="checkbox" id="toggle-2"/>
-                                                                <span><small></small></span>
-                                                            </label>
-                                                        </div>
-                                                        <input type="text" name="" id="" class="form-control">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="switcher">
-                                                            <label for="toggle-3"><strong>Mininimum Product Qty.(overall)</strong>
-                                                                <input type="checkbox" id="toggle-3"/>
-                                                                <span><small></small></span>
-                                                            </label>
-                                                        </div>
-                                                        <input type="text" name="" id="" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="switcher">
-                                                            <label for="toggle-4"><strong>Validation Team</strong>
-                                                                <input type="checkbox" id="toggle-4"/>
-                                                                <span><small></small></span>
-                                                            </label>
-                                                        </div>
-                                                        <input type="text" name="" id="" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                               
+                                             
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-primary btn-block" name="<?php echo $clientId ? "edit_client": "add_client" ?>"> <?php echo ($clientId ? "Upadte" : "Add")?></button>
                                             </div>

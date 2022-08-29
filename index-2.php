@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+include_once('includes/header.php');
 ?>
 
 		<div id="preloader">
@@ -722,6 +722,7 @@
 								<ul aria-expanded="false">
 									<li><a href="/campagin_list" class="all_org">All Campaign</a></li>
 									<li><a href="/add_campagin">Add Campagin</a></li>
+									<li><a href="/add_product">Add Products</a></li>
 									<li><a href="/report">Insights</a></li>
 								</ul>
 							</li>
@@ -733,7 +734,7 @@
 								</a>
 								<ul aria-expanded="false">
 									<li><a href="/licence_list" class="all_org">All Licences</a></li>
-									<li><a href="/add_license">Add Licence</a></li>
+									<li><a href="/add_licence">Add Licence</a></li>
 									<li><a href="/report">Insights</a></li>
 								</ul>
 							</li>
@@ -747,25 +748,25 @@
 								<!-- <ul aria-expanded="false">
 									<li><a href="app-profile.html">Cetzine</a></li>
 									<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-										<ul aria-expanded="false">
-											<li><a href="email-compose.html">Compose</a></li>
-											<li><a href="email-inbox.html">Inbox</a></li>
-											<li><a href="email-read.html">Read</a></li>
-										</ul>
-									</li>
-
-								</ul> -->
-							</li>
-							<li class="nav-label">Reports</li>
-							<li>
-								<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-									<img src="https://img.icons8.com/color/48/000000/business-report.png" width="24px">
-									<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24" /><polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" /> <path d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z" fill="#000000" opacity="0.3" /><path d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z" fill="#000000" fill-rule="nonzero" /></g></svg> -->
-									<span class="nav-text">Report</span>
-								</a>
-								<!-- <ul aria-expanded="false">
-									<li><a href="app-profile.html">Cetzine</a></li>
-									<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a></li>
+									<ul aria-expanded="false">
+										<li><a href="email-compose.html">Compose</a></li>
+										<li><a href="email-inbox.html">Inbox</a></li>
+										<li><a href="email-read.html">Read</a></li>
+									</ul>
+								</li>
+								
+							</ul> -->
+						</li>
+						<li class="nav-label">Reports</li>
+						<li>
+							<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+								<img src="https://img.icons8.com/color/48/000000/business-report.png" width="24px">
+								<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24" /><polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" /> <path d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z" fill="#000000" opacity="0.3" /><path d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z" fill="#000000" fill-rule="nonzero" /></g></svg> -->
+								<span class="nav-text">Report</span>
+							</a>
+							<!-- <ul aria-expanded="false">
+								<li><a href="app-profile.html">Cetzine</a></li>
+								<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a></li>
 								</ul> -->
 							</li>
 							<li class="nav-label">Settings</li>
@@ -795,43 +796,49 @@
 				<div class="content-body">
 					<div id="div1" class="container-fluid">
 						<?php
-						
-							switch ($_REQUEST['pageName']?? null) {
-								case "report":
-									include_once("components/dashboard.php");
-									break;
-								case "licence_list":
-									include_once("components/licence_list.php");
-									break;
-								case "org_list":
-								case "del_org":
-									include_once("components/org_list.php");
-									break;
-								case "client_list":
-								case "del_client":
-									include_once("components/client_list.php");
-									break;
-								case "campagin_list":
-									include_once("components/campagin_list.php");
-									break;
-								case "campagin_detail":
-									include_once("components/campagin_detail.php");
-									break;
-								case "add_campagin":
-									include_once("components/add_campagin.php");
-									break;
-								case "edit_client":
-								case "add_client":
-									include_once("components/add_client.php");
-								break;
-								case "edit_org":
-								case "add_org":
-									include_once("components/add_org.php");
-								break;
-								default:
-									break;
-							}
-						?>
+
+switch ($_REQUEST['pageName'] ?? null) {
+	case "report":
+		include_once("components/dashboard.php");
+		break;
+	case "org_list":
+	case "del_org":
+		include_once("components/org_list.php");
+		break;
+	case "client_list":
+	case "del_client":
+		include_once("components/client_list.php");
+		break;
+	case "campagin_list":
+		include_once("components/campagin_list.php");
+		break;
+	case "campagin_detail":
+		include_once("components/campagin_detail.php");
+		break;
+	case "add_campagin":
+		include_once("components/add_campagin.php");
+		break;
+	case "add_product":
+		include_once("components/add_product.php");
+		break;
+	case "edit_client":
+	case "add_client":
+		include_once("components/add_client.php");
+		break;
+	case "edit_org":
+	case "add_org":
+		include_once("components/add_org.php");
+		break;
+	case "licence_list":
+		include_once("components/licence_list.php");
+		break;
+	case "add_licence":
+		include_once("components/add_licence.php");
+		break;
+	default:
+		break;
+}
+?>
 					</div>
 				</div>
 				
@@ -848,7 +855,7 @@
 
 		</div>
 <?php
-	include_once('includes/footer.php');
+include_once('includes/footer.php');
 ?>
 
 		<!-- Javascript-->

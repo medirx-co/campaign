@@ -28,9 +28,8 @@ div.switcher + div.switcher {
   div.switcher label input + span {
     position: relative;
     display: inline-block;
-    margin-right: 10px;
     width: 50px;
-    height: 26px;
+    height: 18px;
     background: var(--light);
     border: 2px solid var(--light);
     border-radius: 50px;
@@ -40,10 +39,11 @@ div.switcher + div.switcher {
   div.switcher label input + span small {
     position: absolute;
     display: block;
-    width: 50%;
+    width: 15px;
     height: 100%;
     background: #fff;
     border-radius: 50%;
+    border: rgba(0, 0, 0, 0.331) 1px solid;
     transition: all 0.3s ease-in-out;
     left: 0;
   }
@@ -52,5 +52,5 @@ div.switcher + div.switcher {
     border-color: var(--success);
   }
   div.switcher label input:checked + span small {
-    left: 50%;
+    left: calc(100% - 15px);
   }
