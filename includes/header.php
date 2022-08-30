@@ -1,8 +1,19 @@
 <?php 
+session_id("198df961b52f883e8bb4f98520c6a70b");
 ob_start();
+session_start();
+
+
+echo "sesion";
+print_r($_COOKIE);
+print_r($_SESSION);
+echo session_id();
 define('BASE_API_URL', 'https://staging.tecmetis.com/api');
 
 function curlRequest($url, bool $isPOST = false, $postFields = null) {
+	$headers = array(
+		"Cookie: PHPSESSID=198df961b52f883e8bb4f98520c6a70b",
+	);
     $ch = curl_init();
 	$curlConfig = [
 		CURLOPT_URL            		=> BASE_API_URL.$url,
@@ -10,6 +21,8 @@ function curlRequest($url, bool $isPOST = false, $postFields = null) {
 		CURLOPT_ENCODING 			=> '',
 		CURLOPT_MAXREDIRS 			=> 10,
 		CURLOPT_TIMEOUT 			=> 0,
+		CURLOPT_HEADER				=> 1,
+		CURLOPT_HTTPHEADER			=> $headers,
 		CURLOPT_FOLLOWLOCATION 		=> true,
 		CURLOPT_HTTP_VERSION 		=> CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST 		=> 'GET',
@@ -20,9 +33,14 @@ function curlRequest($url, bool $isPOST = false, $postFields = null) {
 	}
     curl_setopt_array($ch, $curlConfig);
     $result = curl_exec($ch);
-    $result = json_decode($result);
+	
+	$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+	$header = substr($result, 0, $header_size);
+	$body = substr($result, $header_size);
+    $body = json_decode($body);
+	$body->header = $header;
     curl_close($ch);
-    return $result;
+    return $body;
 }
 ?>
 <!DOCTYPE html>

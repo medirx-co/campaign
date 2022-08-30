@@ -8,9 +8,9 @@
 
     if(isset($_REQUEST['login'])) {
         $result = curlRequest('/user/login/', true, $verifyLogin);
-        // print_r($result);
+        print_r($result);
         if($result->status == 'success'){
-            header('Location: /dashboard');
+            // header('Location: /dashboard');
             echo "<script>alert('Login Successful!')</script>";
 
         } else echo "<script>alert('Something went wrong!')</script>";

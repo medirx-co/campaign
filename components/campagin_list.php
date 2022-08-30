@@ -1,7 +1,7 @@
 <?php
 	$url = '/campaign/all/';
     // $jsonResult = json_decode(file_get_contents($orgList), true);
-    $jsonResult = json_decode(curlRequest($url));
+    $jsonResult = curlRequest($url);
 ?>
         <!-- Organization Start   -->
 

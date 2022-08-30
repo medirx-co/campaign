@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
         <div class="authincation h-90 mt-3 mb-3 pb-4">
             <div class="container h-100">
@@ -47,5 +47,5 @@
         </div>
 
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>

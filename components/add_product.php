@@ -1,6 +1,6 @@
 <?php
 	$campaginList = '/campaign/all/';
-    $jsonResult = json_decode(curlRequest($campaginList));
+    $jsonResult = curlRequest($campaginList);
 ?>
         <div class="authincation h-100">
             <div class="container h-100">

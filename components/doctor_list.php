@@ -50,7 +50,7 @@
                                                 <td></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="/doctor_invoice" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
                                                         <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
