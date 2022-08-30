@@ -1,11 +1,11 @@
 <?php
 	include_once('includes/header.php');
 ?>
-        <div class="authincation h-90 mt-3 mb-3 pb-4">
+        <div class="authincation h-100 mt-2 mb-2 pb-2">
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
                     <div class="col-md-8">
-                        <div class="authincation-content mt-4">
+                        <div class="authincation-content mt-2">
                             <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1 mt-1 p-1" style="font-size:30px;" ></i></a>
                             <div class="row no-gutters">
                                 <div class="col-md-12">
