@@ -54,3 +54,24 @@ div.switcher + div.switcher {
   div.switcher label input:checked + span small {
     left: calc(100% - 15px);
   }
+
+/* User Options CSS Start */
+.card-body.bg-primary{
+  border-radius: 13px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* User Options CSS End */
