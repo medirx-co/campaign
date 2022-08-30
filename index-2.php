@@ -801,6 +801,9 @@ switch ($_REQUEST['pageName'] ?? null) {
 	case "add_chemist":
 		include_once("components/add_chemist.php");
 		break;
+	case "add_doctor":
+		include_once("components/add_doctor.php");
+		break;
 	case "org_list":
 	case "del_org":
 		include_once("components/org_list.php");

@@ -2,17 +2,21 @@
 session_id("198df961b52f883e8bb4f98520c6a70b");
 ob_start();
 session_start();
+function sessionUser(string $user = null) {
+	if (!empty($user)) $_SESSION['user'] = $user;
+	return $_SESSION['user'];
+}
 
-
-echo "sesion";
-print_r($_COOKIE);
-print_r($_SESSION);
-echo session_id();
+// echo "sesion";
+// print_r($_COOKIE);
+// print_r($_SESSION);
+// echo session_id();
 define('BASE_API_URL', 'https://staging.tecmetis.com/api');
 
 function curlRequest($url, bool $isPOST = false, $postFields = null) {
 	$headers = array(
-		"Cookie: PHPSESSID=198df961b52f883e8bb4f98520c6a70b",
+		"X-Auth-User: ".sessionUser(),
+
 	);
     $ch = curl_init();
 	$curlConfig = [

@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <h4 class="card-title"> Doctor List </h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                    <button type="submit" class="btn btn-primary btn-block"><a href="/add_doctor">Add New</a></button>
                                 </div>
                             </div>
                             <div class="card-body">
