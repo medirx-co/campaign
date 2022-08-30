@@ -55,11 +55,6 @@ div.switcher + div.switcher {
     left: calc(100% - 15px);
   }
 
-/* User Options CSS Start */
-.card-body.bg-primary{
-  border-radius: 13px;
-    text-align: center;
-}
 
 
 
@@ -74,4 +69,3 @@ div.switcher + div.switcher {
 
 
 
-/* User Options CSS End */
