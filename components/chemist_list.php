@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <h4 class="card-title"> Chemist List </h4>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                    <button type="submit" class="btn btn-primary btn-block"><a  href="/add_chemist" class="text-white">Add New</a></button>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -50,7 +50,7 @@
                                                 <td></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="javascript:void()" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="/generate_cbc" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
                                                         <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>

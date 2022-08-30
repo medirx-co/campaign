@@ -37,7 +37,7 @@ if(isset($_POST['add_campagin'])) {
 }
 
     $clientList = '/client/all/';
-    $jsonResult = json_decode(curlRequest($clientList));
+    $jsonResult = curlRequest($clientList);
 
 ?>
         <div class="authincation h-100">

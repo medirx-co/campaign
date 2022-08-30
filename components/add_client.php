@@ -31,7 +31,7 @@ if(isset($_POST['add_client'])) {
 
     //for dropdown
     $orgList = '/organisation/all/';
-    $orgList = json_decode(curlRequest($orgList));
+    $orgList = curlRequest($orgList);
 ?>
         <div class="authincation h-100">
             <div class="container h-100">
