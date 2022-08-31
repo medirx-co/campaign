@@ -2,6 +2,7 @@
 	// include_once('includes/header.php');
     $url = '/campaign/all/';
     $jsonResult = curlRequest($url);
+    print_r($jsonResult);
 ?>
         <!-- campagin list Table Start   -->
 
@@ -34,7 +35,7 @@
                                                 <td><?php echo $row->name; ?></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="/choose/<?php echo $row->id; ?>" class="text-info shadow p-1 mx-1"> View Details</a>
+                                                        <a href="/user_options/<?php echo $row->id; ?>" class="text-info shadow p-1 mx-1"> View Details</a>
                                                         <!-- <a href="/choose/<?php //echo $row->id; ?>" class="text-info shadow p-1 mx-1"> <i class="fa fa-file"></i> Report</a> -->
                                                         <!-- <a href="/choose/<?php //echo $row->id; ?>" class="text-info shadow p-1 mx-1"> <i class="fa fa-file"></i> </a> -->
                                                     </div>

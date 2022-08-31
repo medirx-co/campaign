@@ -856,6 +856,9 @@ switch ($_REQUEST['pageName'] ?? null) {
 	case "doctor_invoice":
 		include_once("components/doctor_invoice.php");
 		break;
+	case "user_options":
+		include_once("components/user_options.php");
+		break;
 	default:
 		include_once("components/dashboard.php");
 		break;

@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
         <div class="authincation h-100 mt-2 mb-2 pb-2">
             <div class="container h-100">
@@ -14,16 +14,18 @@
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center text-white"><img src="https://img.icons8.com/windows/96/FFFFFF/bank-card-front-side--v1.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;"></a>
+                                                        <a class="text-center text-white" href="/choose"><img src="https://img.icons8.com/windows/96/FFFFFF/bank-card-front-side--v1.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
                                                         <h6 class="text-white mt-1">Generate Card</h6>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="card">
                                                         <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center text-white"><img src="https://img.icons8.com/ios-glyphs/90/FFFFFF/test-results.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;"></a>
+                                                        <a class="text-center text-white" href="cbc_report"><img src="https://img.icons8.com/ios-glyphs/90/FFFFFF/test-results.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
                                                         <h6 class="text-white mt-1">Cashback Report</h6>
+                                                    </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,5 +75,5 @@
             </div>
         </div>
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>

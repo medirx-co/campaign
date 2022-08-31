@@ -2,19 +2,23 @@
 	include_once('includes/header.php');
 
     $verifyLogin = array(
-        'username' => $_POST['username'] ?? $verifyLogin->name ?? null,
-        'password' => $_POST['password'] ?? $verifyLogin->password ?? null
+        'username' => $_POST['username'] ?? null,
+        'password' => $_POST['password'] ?? null
     );
 
     if(isset($_REQUEST['login'])) {
         $result = curlRequest('/user/login/', true, $verifyLogin);
+        // print_r($_SESSION);
+        // $_SESSION['user'] = '5';
         print_r($result);
         if($result->status == 'success'){
-            // header('Location: /dashboard');
+            sessionUser($result->result->id ?? $result->result->user);
             echo "<script>alert('Login Successful!')</script>";
 
         } else echo "<script>alert('Something went wrong!')</script>";
     }
+    print_r($_SESSION);
+    if (!empty(sessionUser())) redirect("/dashboard");
 ?>
     
         <div class="authincation" style="display: flex;justify-content: center;align-items: center;height: 100vh;">

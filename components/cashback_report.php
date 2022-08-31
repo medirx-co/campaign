@@ -1,5 +1,5 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
 ?>
         <!-- Cashback Report Start   -->
 
@@ -110,7 +110,7 @@
         <!-- Cashback Report End -->
         
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {
