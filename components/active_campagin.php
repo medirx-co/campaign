@@ -2,7 +2,7 @@
 	// include_once('includes/header.php');
     $url = '/campaign/all/';
     $jsonResult = curlRequest($url);
-    print_r($jsonResult);
+    // print_r($jsonResult);
 ?>
         <!-- campagin list Table Start   -->
 

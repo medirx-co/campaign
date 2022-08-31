@@ -9,6 +9,8 @@ function sessionUser(int|string $user = null) {
 	return $_SESSION['user'] ?? null;
 }
 
+if($_REQUEST['pageName'] != 'login') sessionUser() ?? redirect('/login');
+
 // echo "sesion";
 // print_r($_COOKIE);
 // print_r($_SESSION);
@@ -22,10 +24,11 @@ function redirect(string $url) {
 
 function curlRequest($url, bool $isPOST = false, $postFields = null) {
 	$headers = array(
-		'Cookie: PHPSESSID='.session_id(),
+		// 'Cookie: PHPSESSID='.session_id(),
 	);
 
-	if($_REQUEST['pageName'] != 'login') $headers["X-Auth-User"] = (sessionUser() ?? redirect("/login"));
+	if($_REQUEST['pageName'] != 'login') $headers[] = ("X-Auth-User: ".sessionUser() ?? redirect("/login"));
+	
     $ch = curl_init();
 	$curlConfig = [
 		CURLOPT_URL            		=> BASE_API_URL.$url,
@@ -39,6 +42,7 @@ function curlRequest($url, bool $isPOST = false, $postFields = null) {
 		CURLOPT_HTTP_VERSION 		=> CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST 		=> 'GET',
 	];
+	
 	if ($isPOST) {
 		$curlConfig[CURLOPT_CUSTOMREQUEST] = 'POST';
 		$curlConfig[CURLOPT_POSTFIELDS] = $postFields;
@@ -47,7 +51,7 @@ function curlRequest($url, bool $isPOST = false, $postFields = null) {
 	// print_r($curlConfig);
     $result = curl_exec($ch);
 	// echo "curl response";
-	print_r($result);
+	// print_r($result);
 	$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
 	$header = substr($result, 0, $header_size);
 	$body = substr($result, $header_size);

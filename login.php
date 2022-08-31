@@ -10,14 +10,14 @@
         $result = curlRequest('/user/login/', true, $verifyLogin);
         // print_r($_SESSION);
         // $_SESSION['user'] = '5';
-        print_r($result);
+        // print_r($result);
         if($result->status == 'success'){
             sessionUser($result->result->id ?? $result->result->user);
             echo "<script>alert('Login Successful!')</script>";
 
         } else echo "<script>alert('Something went wrong!')</script>";
     }
-    print_r($_SESSION);
+    // print_r($_SESSION);
     if (!empty(sessionUser())) redirect("/dashboard");
 ?>
     
