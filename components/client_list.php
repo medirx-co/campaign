@@ -1,8 +1,8 @@
 <?php
 	// include_once('includes/header.php');
     if($_REQUEST['pageName'] == "del_client") {
-        $result = BASE_API_URL.'/client/delete/'.$_REQUEST['id'].'/';
-        $jsonResult = json_decode(file_get_contents($result));
+        $result = '/client/delete/'.$_REQUEST['id'].'/';
+        $jsonResult = curlRequest($result);
         // $result = curlRequest('/organisation/delete/'.$_REQUEST['id'].'/', null);   
         
         if($jsonResult) {
@@ -14,7 +14,7 @@
 
 
 $clientList = '/client/all/';
-$jsonResult = json_decode(curlRequest($clientList));
+$jsonResult = curlRequest($clientList);
 
 ?>
         <!-- Client Status Start   -->

@@ -1,5 +1,11 @@
 <?php
 	// include_once('includes/header.php');
+    // $campaignId = $_REQUEST['id'] ?? null;
+    // if($campaignId){
+        $url = '/chemist/user/all/';
+        $jsonResult = curlRequest($url);
+        // print_r($jsonResult);
+    // }
 ?>
         <!-- Assign Licenses Table Start   -->
 
@@ -42,34 +48,23 @@
                                                 </tr>
                                         </thead>
                                         <tbody>
+                                         <?php foreach ($jsonResult->result as $index => $row):?>
                                             <tr>
-                                                <th>1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <th></th>
-                                                <td></td>
+                                                <th><?php echo $row->id; ?></th>
+                                                <td><?php echo $row->name; ?></td>
+                                                <td><?php echo $row->locality; ?></td>
+                                                <th><?php echo $row->city; ?></th>
+                                                <td><?php echo $row->pincode; ?></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="/generate_cbc" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
+                                                        <a href="/generate_cbc/<?php echo $row->id; ?>" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
                                                         <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th>1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <th></th>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="/generate_cbc" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php endforeach; ?>
+        
                                             
                                         </tbody>
                                     </table>

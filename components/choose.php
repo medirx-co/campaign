@@ -1,5 +1,6 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
+    // $campaginId = $_GET['id'];
 ?>
         <style>
             .bg-transparent{
@@ -16,7 +17,7 @@
                             <div class="row no-gutters">
                                 <div class="col-xl-6 px-3 pt-4 pb-4">
                                     <div class="bg-white p-3">
-                                        <a href="/chemist" class="btn btn-primary btn-sm p-1 mx-2 mt-2">Chemist</i></a>
+                                        <a href="/chemist<?php //echo $campaginId; ?>" class="btn btn-primary btn-sm p-1 mx-2 mt-2">Chemist</i></a>
                                         <a href="" class="btn btn-success btn-sm float-right p-1 mx-3 mt-2 fs-2"><i class="fa fa-medkit"></i></a>
                                         <img src="/images/doctor/chemist.jpg" alt="" class="rounded mx-auto d-block" style="display: inline; width:100%;">
                                     </div>
@@ -36,5 +37,5 @@
             </div>
         </div>
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>

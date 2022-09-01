@@ -1,5 +1,13 @@
 <?php
 	// include_once('includes/header.php');
+    $campaginId = $_GET['id'];
+    sessionUser($_GET['campaign_user_id']);
+    $url = '/campaign/get/'.$campaginId.'/';
+    $jsonResult = curlRequest($url);
+
+    // print_r($jsonResult);
+
+
 ?>
         <div class="authincation h-100 mt-2 mb-2 pb-2">
             <div class="container h-100">
@@ -9,12 +17,13 @@
                             <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1 mt-1 p-1" style="font-size:30px;" ></i></a>
                             <div class="row no-gutters">
                                 <div class="col-md-12">
+                                    <h3><?php echo  $jsonResult->result->name?></h3>
                                     <div class="auth-form mx-3 my-3 p-0">
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center text-white" href="/choose"><img src="https://img.icons8.com/windows/96/FFFFFF/bank-card-front-side--v1.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+                                                        <a class="text-center text-white" href="/choose<?php //echo $campaginId; ?>"><img src="https://img.icons8.com/windows/96/FFFFFF/bank-card-front-side--v1.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
                                                         <h6 class="text-white mt-1">Generate Card</h6>
                                                         </a>
                                                     </div>
@@ -75,5 +84,6 @@
             </div>
         </div>
 <?php
+
 	// include_once('includes/footer.php');
 ?>

@@ -11,7 +11,7 @@
                             <div class="row no-gutters">
                                 <div class="col-xl-6">
                                     <div class="auth-form">
-                                        <img src="images/form.png" alt="" class="rounded mx-auto d-block" style="display: inline; width:100%;">
+                                        <img src="/images/form.png" alt="" class="rounded mx-auto d-block" style="display: inline; width:100%;">
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
@@ -37,7 +37,15 @@
                                                 <label class="mb-1"><strong>Contact No.</strong></label>
                                                 <input type="text" class="form-control" value="">
                                             </div>
-                                            
+                                            <div class="form-group">
+                                                <label class="mb-1"><strong>Payment Mode</strong></label>
+                                                <select class="form-control">
+                                                    <option class="text-light">--- Select ---</option>
+                                                    <option>Paytm</option>
+                                                    <option>Amazon</option>
+                                                    <!-- <option>None</option> -->
+                                                </select>
+                                            </div>
                                             <div class="text-start mt-4">
                                                 <button type="submit" class="btn btn-primary btn-block">Cashback Card Template</button>
                                             </div>

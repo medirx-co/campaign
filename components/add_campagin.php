@@ -1,10 +1,11 @@
 <?php
-
+// $url = '/campaign/user/all/';
+// $jsonResult = curlRequest($url);
 
 $campaginId = $_REQUEST['id'] ?? null;
 if($campaginId) {
-    $getCampaginData = BASE_API_URL."/campagin/get/$campaginId/";
-    $campaginDataResult = json_decode(file_get_contents($getCampaginData))->result;
+    $url = "/campagin/get/'.$campaginId.'/";
+    $campaginDataResult = curlRequest($url)->result;
     // print_r($orgDataResult);
 }
 
@@ -28,7 +29,7 @@ if(isset($_POST['add_campagin'])) {
     if($result) echo "<script>alert('Successfully added!')</script>";
     else echo "<script>alert('Something went wrong!')</script>";
     
-} else if(isset($_POST['edit_campagin'])) {
+} else if(isset($_POST['edit_campagin'])) {   
     $result = curlRequest('/campagin/update/'.$_REQUEST['id'].'/', true, $campaginData);
     // print_r($_REQUEST);
     

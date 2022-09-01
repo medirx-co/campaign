@@ -3,7 +3,7 @@
 $clientId = $_REQUEST['id'] ?? null;
 if($clientId) {
     $getClientData = "/client/get/$clientId/";
-    $clientDataResult = json_decode(curlRequest($getClientData))->result;
+    $clientDataResult = curlRequest($getClientData)->result;
     // print_r($orgDataResult);
 }
 

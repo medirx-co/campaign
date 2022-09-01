@@ -819,6 +819,7 @@ switch ($_REQUEST['pageName'] ?? null) {
 		include_once("components/campagin_detail.php");
 		break;
 	case "add_campagin":
+	case "edit_campagin":
 		include_once("components/add_campagin.php");
 		break;
 	case "active_campagin":
