@@ -44,6 +44,7 @@
                                                 <th>location</th>
                                                 <th>City</th>
                                                 <th>Pincode</th>
+                                                <th>Cashback(s)</th>
                                                 <th>Action</th>
                                                 </tr>
                                         </thead>
@@ -55,6 +56,7 @@
                                                 <td><?php echo $row->locality; ?></td>
                                                 <th><?php echo $row->city; ?></th>
                                                 <td><?php echo $row->pincode; ?></td>
+                                                <td class="text-right"><?php echo $row->count_cashback_generated; ?></td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="/generate_cbc/<?php echo $row->id; ?>" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
