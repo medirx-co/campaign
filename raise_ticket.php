@@ -9,7 +9,8 @@
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
                                     <div class="auth-form">
-                                    <h4 class="text-center mb-4">Raise Ticket</h4>
+                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
+                                        <h4 class="text-center mb-4">Raise Ticket</h4>
                                         <form action="">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong> Subject</strong></label>
