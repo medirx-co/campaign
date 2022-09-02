@@ -24,7 +24,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Problem Description</strong><span>(optional)</span></label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                                <textarea class="form-control" name="editor1" rows="3"></textarea>
                                             </div>
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -44,6 +44,9 @@
         <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="js/custom.min.js"></script>
         <script src="js/deznav-init.js"></script>
+        <!-- Raise Ticket -->
+            <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+        <!-- Raise Ticket -->
         <script>
-            CKEDITOR.replace( 'form-control' );
+            CKEDITOR.replace( 'editor1' );
         </script>

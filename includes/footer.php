@@ -19,9 +19,7 @@
     <script src="/js/plugins-init/datatables.init.js"></script>
 <!-- clientstatus.php -->
 
-<!-- Raise Ticket -->
-<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
-<!-- Raise Ticket -->
+
 </body>
 </html>
 
