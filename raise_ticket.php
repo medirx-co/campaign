@@ -44,7 +44,6 @@
         <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="js/custom.min.js"></script>
         <script src="js/deznav-init.js"></script>
-    </body>
-
-    <!-- Mirrored from motaadmin.dexignlab.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jul 2022 04:48:24 GMT -->
-</html>
+        <script>
+            CKEDITOR.replace( 'form-control' );
+        </script>
