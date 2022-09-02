@@ -13,7 +13,7 @@
                                         <h4 class="text-center mb-4">Assign Campagin Payment Mode</h4>
                                         <form action="">
                                             <div class="form-group">
-                                                <label class="mb-1" style="font-size:20px;"><strong>Select Campagin</strong></label>
+                                                <label class="mb-1"><h5><strong>Select Campagin</strong></h5></label>
                                                 <select class="form-control">
                                                     <option>Choose...</option>
                                                     <option>Amazon</option>
