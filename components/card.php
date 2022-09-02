@@ -1,5 +1,7 @@
 <?php
-	include_once('includes/header.php');
+	// include_once('includes/header.php');
+    $url = '/CampaignPaymentMode/all/';
+    $jsonResult = curlRequest($url)->result;
 ?>
         <div class="authincation h-100">
             <div class="container h-100">
@@ -40,10 +42,11 @@
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Payment Mode</strong></label>
                                                 <select class="form-control">
-                                                    <option class="text-light">--- Select ---</option>
-                                                    <option>Paytm</option>
-                                                    <option>Amazon</option>
+                                                    <option disabled selected>--- Select ---</option>
+                                                    <?php foreach($jsonResult as $row):?>
+                                                    <option value="<?php echo $row->cashback_mode_id; ?>"><?php echo $row->cashback_mode_name; ?></option>
                                                     <!-- <option>None</option> -->
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                             <div class="text-start mt-4">
@@ -59,5 +62,5 @@
             </div>
         </div>
 <?php
-	include_once('includes/footer.php');
+	// include_once('includes/footer.php');
 ?>
