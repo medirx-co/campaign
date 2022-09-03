@@ -109,7 +109,11 @@
                                                                 
                                                             </tbody>
                                                             <tfoot>
-
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <th>Total</th>
+                                                                    <th>200</th>
                                                             </tfoot>
                                                         </table>
                                                     </div>
