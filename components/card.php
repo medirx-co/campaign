@@ -41,7 +41,7 @@
                                                 <input type="text" class="form-control bg-light" value="<?php echo  $chemistDetail->name ?>" readonly>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" value="<?php echo $chemist_id; ?>" name="chemist_id">
+                                                <input type="hidden" class="form-control" value="<?php echo $chemist_id; ?>" name="chemist_id">
                                             </div>
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Location</strong></label>
