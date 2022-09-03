@@ -29,7 +29,7 @@
                                                 <th>Product Name</th>
                                                 <th>Qty</th>
                                                 <th>Amount</th>
-                                                <th>Cashback Vlaue</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -64,10 +64,20 @@
                                             <img src="images/green-icon.png" alt="" style="width: 40px;">
                                             <div>POD Upload</div>
                                         </div>
-                                    </div>    
-                                    <div class="col p-md-0 justify-content-sm-end mt-2 mt-sm-0 mb-2 my-2 d-flex">
-                                        <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View POB</button></a>
                                     </div>
+                                    <div class="row mt-4  align-items-center justify-space-between">
+                                        <div class="col-lg-6 col-12">
+                                            <h6><strong>Cashback Value</strong></h6>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mb-2" style="text-align: end;">
+                                            <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View Invoice</button></a>
+                                        </div>
+
+                                        <!-- <div class="col-6 p-md-0 mt-2 mt-sm-0 mb-2 my-3 d-flex">
+                                            <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View Invoice</button></a>
+                                        </div> -->
+                                    </div>    
+                                    
                                 </div>
                             </div>
                         </div>
