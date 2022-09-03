@@ -122,7 +122,7 @@
                                             
                                             <!-- User's Preferences  -->
                                             <fieldset class="form-group border p-3">
-                                                <legend class="w-auto px-2">User's Preferences</legend>
+                                                <!-- <legend class="w-auto px-2"></legend> -->
                                                     <div class="row justify-space-between align-items-center">
                                                         <div class="col-4">
                                                             <input type="Number" class="form-control" placeholder="Cashback value">
