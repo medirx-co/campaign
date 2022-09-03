@@ -1,20 +1,17 @@
 <?php
-	$url = '/campaign/all/';
-    // $jsonResult = json_decode(file_get_contents($orgList), true);
-    $jsonResult = curlRequest($url);
+	include_once('includes/header.php');
 ?>
-        <!-- Campagin Start   -->
+        <!-- Feature Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
-            
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Campagin List</h4>
-                                <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-block"><a  href="/add_campagin" class="text-white" id="add_org"> Add Campaign</button></a>
-                                </div>
+                                <h4 class="card-title">Approve Invoice</h4>
+                                <!-- <div class="text-end">
+                                    <button type="submit" class="btn btn-primary btn-block">Add New</button>
+                                </div> -->
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -22,29 +19,49 @@
                                         <thead>
                                             <tr>
                                                 <th>S.No.</th>
-                                                <th>Campaign Name</th>
-                                                <th>Client Name</th>
-                                                <th>Status</th>
-                                                <th>Active</th>
+                                                <th>Chemist Name</th>
+                                                <th>Employee Code</th>
+                                                <th>Mobile No.</th>
+                                                <th>City</th>
+                                                <th>Cashback Value</th>
+                                                <th>Invoice Value</th>
+                                                <th>Action [ManagerApproval]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($jsonResult->result as $index => $row):
-                                            ?>
                                             <tr>
-                                                <th><?php echo ++$index; ?></th>
-                                                <td><?php echo $row->name; ?></td>
-                                                <td><?php echo $row->client_name; ?></td>
-                                                <th class="<?php echo $row->is_active? 'text-success':'text-danger' ?>"><?php echo $row->is_active? "Active":"Inactive" ?></th>
+                                                <th>1</th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td>
-                                                    <div class="d-flex">
-                                                        <a href="/campagin_detail" class="text-info mx-1"><i class="fa fa-eye sharp"></i></a>
-                                                        <a href="/edit_campagin/<?php echo $row->id; ?>" class="text-dark mx-1"><i class="fa fa-pencil sharp"></i></a>
-                                                        <a href="/del_campagin/<?php echo $row->id; ?>" class="text-danger"><i class="fa fa-trash sharp"></i></a>
+                                                    <div class="d-flex mx-5">
+                                                        <a href="#"><i class="fa fa-check text-success mr-1" style="font-size: 20px;"></i></a>
+                                                        <a href="#"><i class="fa fa-times text-danger mr-1" style="font-size: 20px;"></i></a>
+                                                        <a href="#"><i class="fa fa-eye text-secondary mr-1" style="font-size: 20px;"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php endforeach; ?>
+                                            <tr>
+                                                <th>1</th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <div class="d-flex mx-5">
+                                                        <a href="#"><i class="fa fa-check text-success mr-1" style="font-size: 20px;"></i></a>
+                                                        <a href="#"><i class="fa fa-times text-danger mr-1" style="font-size: 20px;"></i></a>
+                                                        <a href="#"><i class="fa fa-eye text-secondary mr-1" style="font-size: 20px;"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -55,10 +72,9 @@
             
             </section>
             
-        <!-- Campagin End -->
-        
+        <!-- Feature Table End -->
 <?php
-	// include_once('includes/footer.php');
+	include_once('includes/footer.php');
 ?>
         <script>
             function getUrlParams(dParam) {
@@ -116,3 +132,4 @@
                 
             })(jQuery);
         </script>
+    

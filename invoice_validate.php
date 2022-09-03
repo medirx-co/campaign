@@ -85,7 +85,9 @@
                                                                         </div>
                                                                     </td>
                                                                     <td></td>
-                                                                    <td></td>
+                                                                    <td>
+                                                                        <input type="Number" class="" placeholder="">
+                                                                    </td>
                                                                     <td></td>
                                                                 </tr>
                                                                 <tr>
@@ -103,7 +105,9 @@
                                                                         </div>
                                                                     </td>
                                                                     <td></td>
-                                                                    <td></td>
+                                                                    <td>
+                                                                        <input type="Number" class="" placeholder="">
+                                                                    </td>
                                                                     <td></td>
                                                                 </tr>
                                                                 
