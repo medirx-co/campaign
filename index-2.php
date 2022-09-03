@@ -848,6 +848,15 @@ switch ($_REQUEST['pageName'] ?? null) {
 	case "chemist":
 		include_once("components/chemist_list.php");
 		break;
+	case "cashback_report":
+		include_once("components/cashback_report.php");
+		break;
+	case "cashback_details":
+		include_once("components/cashback_details.php");
+		break;
+	case "rank":
+		include_once("components/team_rank.php");
+		break;
 	case "generate_cbc":
 		include_once("components/card.php");
 		break;
@@ -856,6 +865,9 @@ switch ($_REQUEST['pageName'] ?? null) {
 		break;
 	case "doctor_invoice":
 		include_once("components/doctor_invoice.php");
+		break;
+	case "template":
+		include_once("components/template.php");
 		break;
 	case "user_options":
 		include_once("components/user_options.php");

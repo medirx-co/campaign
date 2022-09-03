@@ -10,20 +10,6 @@
         <!-- Assign Licenses Table Start   -->
 
             <section class="container-sm mt-2 mx-3 my-4">
-                <!-- <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Datatable</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Organization</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Organization Table</a></li>
-                        </ol>
-                    </div>
-                </div> -->
             
                 <div class="row">
                     <div class="col-12">
@@ -44,19 +30,19 @@
                                                 <th>location</th>
                                                 <th>City</th>
                                                 <th>Pincode</th>
-                                                <th>Cashback(s)</th>
+                                                <th>Card(s)</th>
                                                 <th>Action</th>
                                                 </tr>
                                         </thead>
                                         <tbody>
                                          <?php foreach ($jsonResult->result as $index => $row):?>
                                             <tr>
-                                                <th><?php echo $row->id; ?></th>
+                                                <th><?php echo ++$index; ?></th>
                                                 <td><?php echo $row->name; ?></td>
                                                 <td><?php echo $row->locality; ?></td>
                                                 <th><?php echo $row->city; ?></th>
                                                 <td><?php echo $row->pincode; ?></td>
-                                                <td class="text-right"><?php echo $row->count_cashback_generated; ?></td>
+                                                <td class="text-center"><?php echo $row->count_cashback_generated; ?></td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="/generate_cbc/<?php echo $row->id; ?>" class="btn btn-info shadow btn-sm sharp p-1 mx-1"> Generate</a>
@@ -66,8 +52,6 @@
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>
-        
-                                            
                                         </tbody>
                                     </table>
                                 </div>

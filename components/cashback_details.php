@@ -10,7 +10,7 @@
                             <h4>Dr Gouranga Sardar</h4>
                             <span>9734544201</span>
                             <p>Kolkata</p>
-                            <p>Stokist: New united Agency</p>
+                            <p>Stockist: New united Agency</p>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mb-5 d-flex">

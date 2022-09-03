@@ -32,7 +32,7 @@
                                             <div class="col-4">
                                                 <div class="card">
                                                         <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center text-white" href="cbc_report"><img src="https://img.icons8.com/ios-glyphs/90/FFFFFF/test-results.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+                                                        <a class="text-center text-white" href="/cashback_report"><img src="https://img.icons8.com/ios-glyphs/90/FFFFFF/test-results.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
                                                         <h6 class="text-white mt-1">Cashback Report</h6>
                                                     </a>
                                                     </div>
@@ -41,10 +41,10 @@
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center">
-                                                            <img src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/FFFFFF/external-podium-office-and-business-creatype-outline-colourcreatype.png" style="margin-top: 1.5rem; margin-bottom: 0.3rem;"></a>                                                        
-                                                        </a>                                                        
-                                                        <h6 class="text-white mt-1">My Team</h6>
+                                                        <a class="text-center" href="/rank">
+                                                            <img src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/FFFFFF/external-podium-office-and-business-creatype-outline-colourcreatype.png" style="margin-top: 1.5rem; margin-bottom: 0.3rem;">                                                 
+                                                        <h6 class="text-white mt-1">My Rank</h6>
+                                                        </a>   
                                                     </div>
                                                 </div>
                                             </div>
