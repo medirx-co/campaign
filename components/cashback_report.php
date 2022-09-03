@@ -1,5 +1,7 @@
 <?php
 	// include_once('includes/header.php');
+    $url = '/cashbackCard/user/all/';
+    $jsonResult = curlRequest($url)->result;
 ?>
         <!-- Cashback Report Start   -->
 
@@ -33,70 +35,43 @@
                                                 <th>S.No.</th>
                                                 <th>Chemist Name</th>
                                                 <th>City</th>
-                                                <th>PayTM Number</th>
-                                                <th>Employee Code</th>
+                                                <th>Mobile No.</th>
                                                 <th>Cashback Code</th>
                                                 <th>Date</th>
                                                 <th>Cashback Value</th>
+                                                <th>ASM Approve</th>
+                                                <th>RSM Approve</th>
+                                                <th>Status</th>
                                                 <th>Date Release</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($jsonResult as $index => $row): 
+                                                # code...
+                                            ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <th><?php echo ++$index ?></th>
+                                                <td><?php echo $row->chemist_name ?></td>
+                                                <td><?php echo $row->chemist_city ?></td>
+                                                <td><?php echo $row->chemist_mobile ?></td>
+                                                <td><?php echo $row->cashback_code ?></td>
+                                                <td><?php echo $row->created_at ?></td>
+                                                <td><?php echo 5 ?></td>
+                                                <td><?php echo ($row->L2_manager_approval)?></td>
+                                                <td><?php echo $row->L3_manager_approval; ?></td>
+                                                <td><i class="text-center <?php echo ($row->status == 'pending')?'fa fa-hourglass-half text-warning' :(($row->status == 'approved')?'fa fa-check text-success' :'fa fa-times text-danger');?>"> <?php echo ($row->status == 'pending')? 'Pending' :(($row->status == 'approved')?'Approved' :'Rejected');?></i></td>
+                                                <td>Date of paymeent release</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="#" class="btn btn-info shadow btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
+                                                        <a href="/cashback_details" class="text-info btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
+                                                        <!-- <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a> -->
+                                                        <a href="#" class="text-danger btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="#" class="btn btn-info shadow btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="#" class="btn btn-info shadow btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger shadow btn-sm sharp"><i class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                           <?php endforeach; ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>
