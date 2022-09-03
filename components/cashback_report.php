@@ -65,7 +65,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="/cashback_details" class="text-info btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <!-- <a href="#" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a> -->
+                                                        <a href="/upload_invoice/<?php echo $row->id;?>" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-upload"></i></a>
                                                         <a href="#" class="text-danger btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>

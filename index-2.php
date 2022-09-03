@@ -873,6 +873,9 @@ switch ($_REQUEST['pageName'] ?? null) {
 	case "user_options":
 		include_once("components/user_options.php");
 		break;
+	case "upload_invoice":
+		include_once("components/upload_invoice.php");
+		break;
 	default:
 		include_once("components/dashboard.php");
 		break;
