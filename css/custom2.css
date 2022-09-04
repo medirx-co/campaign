@@ -57,7 +57,14 @@ div.switcher + div.switcher {
 
  /* Invoice validate Css  */
  
-
+  /* Share Card Css */
+  .hero-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+  }
 
 
 

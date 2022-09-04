@@ -799,6 +799,9 @@ include_once('includes/header.php');
 						<?php
 
 switch ($_REQUEST['pageName'] ?? null) {
+	case "approve_invoice":
+		include_once("components/approve_invoice.php");
+		break;
 	case "add_chemist":
 		include_once("components/add_chemist.php");
 		break;
@@ -875,6 +878,9 @@ switch ($_REQUEST['pageName'] ?? null) {
 		break;
 	case "upload_invoice":
 		include_once("components/upload_invoice.php");
+		break;
+	case "team_report":
+		include_once("components/team_report.php");
 		break;
 	default:
 		include_once("components/dashboard.php");

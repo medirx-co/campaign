@@ -51,16 +51,18 @@
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center text-white"><img src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/file-invoice-dollar.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;"></a>
+                                                        <a href="/approve_invoice" class="text-center text-white"><img src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/file-invoice-dollar.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
                                                         <h6 class="text-white mt-1">Approve Invoice</h6>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="card-body p-0" style="border-radius: 13px;text-align: center; background-color:#3F51B5;">
-                                                        <a class="text-center text-white"><img src="https://img.icons8.com/ios-glyphs/90/FFFFFF/test-results.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;"></a>
+                                                        <a href="/team_report" class="text-center text-white"><img src="https://img.icons8.com/ios-glyphs/90/FFFFFF/test-results.png" style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
                                                         <h6 class="text-white mt-1">My Team Report</h6>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

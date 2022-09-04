@@ -2,6 +2,6 @@ RewriteEngine on
 
 RewriteRule "(dashboard)$" index-2.php [NC,L]
 RewriteRule "(login)$" login.php?pageName=login [NC,L]
-RewriteRule "(org_list|add_org|client_list|add_client|chemist|help_desk|raise_ticket|campagin_list|campagin_detail|add_campagin|report|licence_list|add_licence|add_product|active_campagin|chemist|add_chemist|doctor|doctor_invoice|add_doctor|choose|template|cashback_report|cashback_details|rank)$" index-2.php?pageName=$1 [NC,L]
+RewriteRule "(org_list|add_org|client_list|add_client|chemist|help_desk|raise_ticket|campagin_list|campagin_detail|add_campagin|report|licence_list|add_licence|add_product|active_campagin|chemist|add_chemist|doctor|doctor_invoice|add_doctor|choose|template|cashback_report|cashback_details|rank|approve_invoice|team_report)$" index-2.php?pageName=$1 [NC,L]
 RewriteRule "(edit_org|del_org|edit_client|del_client|choose|edit_campagin|generate_cbc|upload_invoice)/(\d+)$" index-2.php?pageName=$1&id=$2 [NC,L]
 RewriteRule "(user_options)/(\d+)/user/(\d+)$" index-2.php?pageName=$1&id=$2&campaign_user_id=$3 [NC,L]
