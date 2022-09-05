@@ -49,19 +49,19 @@
                                     </table>
                                     <div class="row mx-5">
                                         <div class="col">
-                                            <img src="images/green-icon.png" alt="" class="text-center" style="width: 40px;">
+                                            <a href=""><img src="https://img.icons8.com/material-outlined/96/40C057/ok--v1.png" alt="" class="text-center" style="width: 40px;"></a>
                                             <div>POD Upload</div>
                                         </div>
                                         <div class="col">
-                                             <img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;">
+                                            <a href=""><img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;"></a>
                                             <div>POD Upload</div>
                                         </div>
                                         <div class="col">
-                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
+                                        <a href=""><img src="https://img.icons8.com/material-outlined/96/40C057/ok--v1.png" alt="" class="text-center" style="width: 40px;"></a>
                                             <div>POD Upload</div>
                                         </div>
                                         <div class="col">
-                                        <img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;">
+                                            <a herf="" ><img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;"></a>
                                             <div>POD Upload</div>
                                         </div>
                                     </div>
