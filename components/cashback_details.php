@@ -53,7 +53,7 @@
                                             <div>POD Upload</div>
                                         </div>
                                         <div class="col">
-                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
+                                             <img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;">
                                             <div>POD Upload</div>
                                         </div>
                                         <div class="col">
@@ -61,7 +61,7 @@
                                             <div>POD Upload</div>
                                         </div>
                                         <div class="col">
-                                            <img src="images/green-icon.png" alt="" style="width: 40px;">
+                                        <img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;">
                                             <div>POD Upload</div>
                                         </div>
                                     </div>
