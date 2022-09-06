@@ -1,35 +1,29 @@
-<?php
+<?php 
+abstract class classA {
+	abstract public function msg();
 
-class Customer
-{
-	protected $name;
-
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
-
-	protected function format()
-	{
-		return ucwords($this->name);
-	}
-
-	public function getName()
-	{
-		return $this->format($this->name);
-	}
 }
 
-class VIP extends Customer
-{
-	protected function format()
+class classB extends classA{
+	public function msg()
 	{
-		return strtoupper($this->name);
+		# code...
+		return "Hello";
 	}
 }
-$bob = new Customer('bob allen');
-echo $bob->getName(); // Bob Allen
+class classC extends classA{
+	public function msg()
+	{
+		# code...
+		return "Hallo";
+	}
+	}
 
-$alex = new VIP('alex ferguson');
-echo $alex->getName(); // ALEX FERGUSON
+
+// obj($objects);
+$objects = [new classB(), new classC()];
+foreach ($objects as $obj) {
+	# code...
+	echo $obj->msg();
+}
 ?>
