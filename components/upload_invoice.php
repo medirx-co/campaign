@@ -9,10 +9,22 @@ if (isset($_POST['check_duplicacy'])) {
         'invoice_number' => $_POST['invoice_number']
     ];
     $isDuplicate = curlRequest("/CashbackCard/checkDuplicate/", true, $parameters)->result;
-    print_r($isDuplicate);
+    // print_r($isDuplicate);
+
+    $products = curlRequest("/product/user/all/")->result;
 }
 $isDuplicate = $isDuplicate ?? null;
 ?>
+<style>
+    input.quantity {
+        width: 80px;
+        padding-left: 6px;
+    }
+
+    /* tr td:last-child {
+        width: fit-content;
+    } */
+</style>
 <div class="authincation h-100">
     <div class="container h-100">
         <div class="row justify-content-center h-100 align-items-center">
@@ -90,17 +102,20 @@ $isDuplicate = $isDuplicate ?? null;
                                                 style="min-width: 845px">
                                                 <thead>
                                                     <tr>
+                                                        <th>Sr. No.</th>
                                                         <th>Product Name</th>
-                                                        <th>Order Type</th>
-                                                        <th>Rate</th>
-                                                        <th>Qty</th>
-                                                        <th>Amt.</th>
+                                                        <!-- <th>Order Type</th> -->
+                                                        <th class="text-center">Rate</th>
+                                                        <th class="text-center">Qty</th>
+                                                        <th class="text-center">Amt.</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php foreach($products as $index => $product):?>
                                                     <tr>
-                                                        <th>Product-1</th>
-                                                        <td>
+                                                        <th><?php echo ++$index;?></th>
+                                                        <th> <label for="prod-<?php echo $index;?>"><?php echo $product->name;?></label></th>
+                                                        <!-- <td>
                                                             <div class="dropdown">
                                                                 <button
                                                                     class="btn btn-sm btn-outline-info dropdown-toggle"
@@ -115,41 +130,20 @@ $isDuplicate = $isDuplicate ?? null;
                                                                     <a class="dropdown-item" href="#">Pending</a>
                                                                 </div>
                                                             </div>
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        </td> -->
+                                                        <td>Rs. <span class="float-right rate"><?php echo $product->ptr_value;?></span></td>
+                                                        <td class="text-center"><input type="number" class="quantity" name="quantity[]" id="prod-<?php echo $index;?>" min="0" value="0" min_quantity="<?php echo $product->min_order_qty;?>"></td>
+                                                        <td>Rs. <span class="float-right amount">0.00</span></td>
                                                     </tr>
-                                                    <tr>
-                                                        <th>Product-2</th>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button
-                                                                    class="btn btn-sm btn-outline-info dropdown-toggle"
-                                                                    type="button" data-toggle="dropdown"
-                                                                    aria-haspopup="true" aria-expanded="false">
-                                                                    Choose
-                                                                </button>
-                                                                <div class="dropdown-menu"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Approve</a>
-                                                                    <a class="dropdown-item" href="#">Rejected</a>
-                                                                    <a class="dropdown-item" href="#">Pending</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-
+                                                    <?php endforeach;?>
                                                 </tbody>
                                                 <tfoot>
                                                     <td></td>
                                                     <td></td>
+                                                    <!-- <td></td> -->
                                                     <td></td>
-                                                    <th>Total</th>
-                                                    <th>200</th>
+                                                    <th class="text-right">Total</th>
+                                                    <th>Rs. <span class="float-right" id="totalAmount">0.00</span></th>
                                                 </tfoot>
                                             </table>
                                         </div>
@@ -163,7 +157,7 @@ $isDuplicate = $isDuplicate ?? null;
                                         <div class="row justify-space-between align-items-center">
                                             <div class="col-4">
                                                 <label for="">Cashback Value : </label>
-                                                <input type="Number" class="form-control" placeholder="">
+                                                <input type="Number" class="form-control bg-light text-right" value="0.00" readonly>
                                             </div>
                                             <div class="col-4 text-center">
                                                 <!-- <label for="">Upload Invoice : </label> -->
@@ -215,18 +209,39 @@ $isDuplicate = $isDuplicate ?? null;
     CKEDITOR.replace('editor1');
 </script>
 <script>
+
+    function updateTotalAmount() {
+        var amounts = $('tr .amount');
+        var total = 0;
+        $.each(arr, (v) => {
+            total += $(v).text();
+        });
+        $('#totalAmount').text(total.toFixed(2));
+    }
+
+    function updateCashbackValue() {
+        var total = $('#totalAmount').text();
+    }
+
     $(function () {
         $(".dropdown-menu").on('click', 'a', function () {
             $(this).parents('.dropdown').find('button').text($(this).text());
         });
     });
-</script>
 
-<!-- <script>
-    $("#checkDuplicacy").click(() => {
-        console.log($("input[name=invoice_number]"));
+    $('input.quantity').change((e) => {
+        var trow = $(e.target).parents('tr');
+        var rate = trow.find('.rate').text();
+        var amount = trow.find('.amount');
+        var quantity = e.target.value;
+        // update amount
+        amount.text(Number(quantity*rate).toFixed(2));
+        // update total amount
+        updateTotalAmount();
+        // update cashback value
+        updateCashbackValue();
     });
-</script> -->
+</script>
 
 <?php
 // include_once('includes/footer.php');
