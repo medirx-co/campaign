@@ -213,8 +213,8 @@ $isDuplicate = $isDuplicate ?? null;
     function updateTotalAmount() {
         var amounts = $('tr .amount');
         var total = 0;
-        $.each(arr, (v) => {
-            total += $(v).text();
+        $.each(amounts, (index, row) => {
+            total += +$(row).text(); // here (+) is used to convert string as number
         });
         $('#totalAmount').text(total.toFixed(2));
     }
