@@ -1,0 +1,22 @@
+1. chemist
+2. NA
+3. Brand Manager
+4. location
+5. pincode
+6. hq
+
+TABLE - chemists
+    id name pincode loacation contact_no email (null)
+
+TABLE - NA
+    id name pincode location hq contact_no email (null) code password
+
+TABLE - Call Records
+    id chemist_id na_id date_of_call_raise date_of_call is_call_backed call_back_date
+
+TABLE - url_visit
+
+        id chem_id 
+
+
+
