@@ -98,8 +98,7 @@ $isDuplicate = $isDuplicate ?? null;
                                 <form>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table id="example1" class="table table-hover table-responsive-sm"
-                                                style="min-width: 845px">
+                                            <table id="products" class="table table-hover table-responsive-sm" style="min-width: 845px">
                                                 <thead>
                                                     <tr>
                                                         <th>Sr. No.</th>
@@ -114,7 +113,7 @@ $isDuplicate = $isDuplicate ?? null;
                                                     <?php foreach($products as $index => $product):?>
                                                     <tr>
                                                         <th><?php echo ++$index;?></th>
-                                                        <th> <label for="prod-<?php echo $index;?>"><?php echo $product->name;?></label></th>
+                                                        <th> <label for="prod-<?php echo $index;?>" class="name"><?php echo $product->name;?></label></th>
                                                         <!-- <td>
                                                             <div class="dropdown">
                                                                 <button
@@ -132,17 +131,13 @@ $isDuplicate = $isDuplicate ?? null;
                                                             </div>
                                                         </td> -->
                                                         <td>Rs. <span class="float-right rate"><?php echo $product->ptr_value;?></span></td>
-                                                        <td class="text-center"><input type="number" class="quantity" name="quantity[]" id="prod-<?php echo $index;?>" min="0" value="0" min_quantity="<?php echo $product->min_order_qty;?>"></td>
+                                                        <td class="text-center"><input type="number" class="quantity" name="quantity[]" id="prod-<?php echo $index;?>" min="0" value="0" min-quantity="<?php echo $product->min_order_qty;?>"></td>
                                                         <td>Rs. <span class="float-right amount">0.00</span></td>
                                                     </tr>
                                                     <?php endforeach;?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <!-- <td></td> -->
-                                                    <td></td>
-                                                    <th class="text-right">Total</th>
+                                                    <th colspan="4" class="text-right">Total</th>
                                                     <th>Rs. <span class="float-right" id="totalAmount">0.00</span></th>
                                                 </tfoot>
                                             </table>
@@ -157,7 +152,7 @@ $isDuplicate = $isDuplicate ?? null;
                                         <div class="row justify-space-between align-items-center">
                                             <div class="col-4">
                                                 <label for="">Cashback Value : </label>
-                                                <input type="Number" class="form-control bg-light text-right" value="0.00" readonly>
+                                                <input type="Number" class="form-control bg-light text-right" id="cashbackValue" value="0.00" readonly>
                                             </div>
                                             <div class="col-4 text-center">
                                                 <!-- <label for="">Upload Invoice : </label> -->
@@ -220,7 +215,81 @@ $isDuplicate = $isDuplicate ?? null;
     }
 
     function updateCashbackValue() {
-        var total = $('#totalAmount').text();
+        var total = +$('#totalAmount').text();
+        var cashback = $('#cashbackValue');
+        let products = [];
+        // get all product details
+        $('table#products tbody tr').each((index, element) => {
+            products.push({
+                name: $(element).find('.name').text(),
+                rate: +$(element).find('.rate').text(),
+                quantity: +$(element).find('.quantity').val(),
+                minQuantity: +$(element).find('.quantity').attr('min-quantity'),
+                amount: +$(element).find('.amount').text(),
+            });
+        });
+
+
+        // meta data for Cashback Rule //
+        var metaData = {
+            purchasedProducts: [],
+            minQuantityProducts: {},
+            minQuantityProductsQualified: true,
+            
+            minProducts: 2, // could be null to skip product count validation
+            minTotalQuantity: 10, // sum of all product-quantity
+            totalProductsQuantity: 0,
+            
+            minCashbackValue: 50,
+            maxCashbackValue: 500,
+            cashbackIncrementValue: 50, // could be null to skip and made a fixed cashback value on any amount
+            cashbackCalculated: 0,
+            
+            minimumInoiceValue: 250,
+            invoiceStepDifference: 100, // Ex - for each 100 Rs after minimumInoiceValue there will be increment of cashbackIncrementValue
+        }
+
+        // var cashbackRules = {}
+
+        $.each(products, (index, product) => {
+            // product(s) purchased //
+            if(product.quantity) {
+                metaData['purchasedProducts'].push(product);
+                metaData.totalProductsQuantity += product.quantity;
+            }
+            if(product.minQuantity) {
+                var minQuantityProducts = {
+                    quantity: product.quantity,
+                    minQuantity: product.minQuantity,
+                    qualified: product.quantity >= product.minQuantity,
+                }
+                if (metaData.minQuantityProductsQualified) metaData.minQuantityProductsQualified = minQuantityProducts.qualified;
+                metaData.minQuantityProducts[product.name] = minQuantityProducts;
+            }
+        });
+
+        var min_quantity_products_count = Object.keys(metaData.minQuantityProducts).length;
+        // Validating cashback rules //
+        if (
+            ((metaData.minProducts && (metaData.purchasedProducts.length >= metaData.minProducts)) || !metaData.minProducts) // console.log("minimum products fulfilled");
+            && ((min_quantity_products_count && metaData.minQuantityProductsQualified) || !min_quantity_products_count) // console.log("minimum quantity per product fulfilled");
+            && ((metaData.minTotalQuantity && (metaData.totalProductsQuantity >= metaData.minTotalQuantity)) || !metaData.minTotalQuantity) // console.log("minimum total products quantity fulfilled");
+            && ((metaData.minimumInoiceValue && (total >= metaData.minimumInoiceValue)) || !metaData.minimumInoiceValue) // console.log("minimum invoice value fulfilled");
+        ) {
+            metaData.cashbackCalculated = metaData.minCashbackValue;
+            if(metaData.invoiceStepDifference) metaData.cashbackCalculated += (Math.floor((total-metaData.minimumInoiceValue)/metaData.invoiceStepDifference)*metaData.cashbackIncrementValue);
+            console.log('all validations qualified', metaData.cashbackCalculated);
+        }
+
+        // Object.keys(metaData.minQuantityProducts).forEach(element => {
+            
+        //     console.log(metaData.minQuantityProducts[element]);
+        // });
+        
+        console.log(metaData);
+        if(metaData.purchasedProducts.length) console.log(`${metaData.purchasedProducts.length} product(s) purchased`);
+        if (metaData.cashbackCalculated > metaData.maxCashbackValue) metaData.cashbackCalculated = metaData.maxCashbackValue;
+        cashback.val((metaData.cashbackCalculated).toFixed(2));
     }
 
     $(function () {
@@ -229,7 +298,7 @@ $isDuplicate = $isDuplicate ?? null;
         });
     });
 
-    $('input.quantity').change((e) => {
+    $('input.quantity').on("input", (e) => {
         var trow = $(e.target).parents('tr');
         var rate = trow.find('.rate').text();
         var amount = trow.find('.amount');
