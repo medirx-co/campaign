@@ -546,7 +546,16 @@ include_once('includes/header.php');
 									</div>
 								</div>
 								<ul class="navbar-nav header-right">
-									
+									<li class="nav-item dropdown notification_dropdown">
+										<div class="switcher">
+                                            <label for="toggle-0" class="w-100 mx-1"><strong>Dark Mode</strong>
+                                                <div class="d-inline-block float-lg-right">
+													<input type="checkbox" id="toggle-0" class="toggle_theme"/>
+                                                    <span><small></small></span>
+                                                </div>
+                                            </label>
+										</div>
+									</li>
 									<li class="nav-item dropdown notification_dropdown">
 										<a class="nav-link bell dz-fullscreen" href="#">
 											<svg id="icon-full" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
@@ -710,8 +719,6 @@ include_once('includes/header.php');
 								<ul aria-expanded="false">
 									<li><a href="/client_list" class="all_clients">All Clients</a></li>
 									<li><a href="/add_client">Add Client</a></li>
-									<!-- <li><a href="index-3.html">Mini Sidebar</a></li>
-									<li><a href="index-4.html">Sidebar</a></li> -->
 								</ul>
 							</li>
 							<li>
@@ -785,6 +792,16 @@ include_once('includes/header.php');
 									<li>
 										<a href="page-login.php">
 										<img src="https://img.icons8.com/fluency/48/000000/enter-2.png"  width="24px">Login</a>
+									</li>
+									<li>
+										<div class="switcher">
+                                            <label for="toggle-0" class="w-100 mx-1"><strong>Dark Mode</strong>
+                                                <div class="d-inline-block float-lg-right">
+													<input type="checkbox" id="toggle-0" class="toggle_theme"/>
+                                                    <span><small></small></span>
+                                                </div>
+                                            </label>
+										</div>
 									</li>
 								</ul>
 							</li>
@@ -987,4 +1004,18 @@ include_once('includes/footer.php');
 				})(jQuery);
 			</script>
 		<!-- Javascript-->
+	<!-- navbar-nav header-right -->
+	<script>
+		var element = document.body;
+			$('.toggle_theme').change( () => {
+			console.log("hi");
+			if($('.toggle_theme').prop('checked'))
+			{
+				element.setAttribute("data-theme-version","dark");	
+			}
+			else{
+				element.setAttribute("data-theme-version","light");
+			}
+		});
+	</script>
 	
