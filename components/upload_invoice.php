@@ -21,6 +21,21 @@ $isDuplicate = $isDuplicate ?? null;
         padding-left: 6px;
     }
 
+    #cashbackRules li span {
+        margin: 0 20px;
+        font-weight: bold;
+    }
+
+    #cashbackRules li span[qualified='false']::before {
+        content: "✗";
+        color: var(--danger);
+    }
+    
+    #cashbackRules li span[qualified='true']::before {
+        content: "✓";
+        color: var(--success);
+    }
+
     /* tr td:last-child {
         width: fit-content;
     } */
@@ -154,7 +169,31 @@ $isDuplicate = $isDuplicate ?? null;
                                                 <label for="">Cashback Value : </label>
                                                 <input type="Number" class="form-control bg-light text-right" id="cashbackValue" value="0.00" readonly>
                                             </div>
-                                            <div class="col-4 text-center">
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col">
+                                                <label>Cashback Rules: <small>(to avail)</small></label>
+                                                <ul id="cashbackRules">
+                                                    <li class="rule" id="requiredProducts">
+                                                        <span qualified="0"></span>
+                                                        <details open class="d-inline-block align-top">
+                                                            <summary>Products Required :</summary>
+                                                            <div class="container-body">
+                                                                <ul>
+                                                                    <!-- <li><span qualified="1"></span>Product 1 (0/5)</li>
+                                                                    <li><span qualified="1"></span>Product 2 (10/50)</li> -->
+                                                                </ul>
+                                                            </div>
+                                                        </details>
+                                                    </li>
+                                                    <li class="rule" id="minInvoiceValue"></li>
+                                                    <li class="rule" id="minTotalProductQuantity"></li>
+                                                    <li class="rule" id="minTotalProducts"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col">
                                                 <!-- <label for="">Upload Invoice : </label> -->
                                                 <label> Upload Invoice :
                                                     <input type="file" id="file" style="display: none;">
@@ -163,10 +202,11 @@ $isDuplicate = $isDuplicate ?? null;
                                                     <!-- Upload Invoice -->
                                                 </label>
                                             </div>
-                                            <div class="col-4 text-right">
+                                            <div class="col">
                                                 <button type="submit" class="btn btn-primary btn-customized btn-sm">View
                                                     Invoice</button>
                                             </div>
+
                                         </div>
                                         <div class="form-group mt-3">
                                             <label for="">Status : </label>
@@ -214,8 +254,25 @@ $isDuplicate = $isDuplicate ?? null;
         $('#totalAmount').text(total.toFixed(2));
     }
 
+    function updateCashbackRules(metaData) {
+        var cashbackRules = $("#cashbackRules");
+        var minQunatityProducts = cashbackRules.find("#requiredProducts div>ul");
+        minQunatityProducts.empty();
+        if (Object.keys(metaData.minQuantityProducts).length) {
+            minQunatityProducts.parents('#requiredProducts').removeClass('d-none').children('span').attr("qualified", metaData.minQuantityProductsQualified);
+            Object.keys(metaData.minQuantityProducts).forEach(key => {
+                console.log(key);
+                minQunatityProducts.append(`<li><span qualified='${metaData.minQuantityProducts[key]['qualified']}'></span>${key} (${metaData.minQuantityProducts[key]['quantity']} / ${metaData.minQuantityProducts[key]['minQuantity']})</li>`)
+            });
+        } else {
+            minQunatityProducts.parents('#requiredProducts').addClass('d-none');
+        }
+        if (metaData.minimumInoiceValue) cashbackRules.find("#minInvoiceValue").empty().append(`<span qualified="${metaData.invoiceValue >= metaData.minimumInoiceValue}"></span><label>Minimum Invoice Value - Rs. ${metaData.minimumInoiceValue.toFixed(2)}</label>`)
+        if (metaData.minTotalQuantity) cashbackRules.find("#minTotalProductQuantity").empty().append(`<span qualified="${metaData.totalQuantity >= metaData.minTotalQuantity}"></span><label>Minimum Total quantity (${metaData.minTotalQuantity})</label>`)
+        if (metaData.minProducts) cashbackRules.find("#minTotalProducts").empty().append(`<span qualified="${metaData.purchasedProducts.length >= metaData.minProducts}"></span><label>Minimum ${metaData.minProducts} Products requred to be purchased</label>`)
+    }
+
     function updateCashbackValue() {
-        var total = +$('#totalAmount').text();
         var cashback = $('#cashbackValue');
         let products = [];
         // get all product details
@@ -238,7 +295,7 @@ $isDuplicate = $isDuplicate ?? null;
             
             minProducts: 2, // could be null to skip product count validation
             minTotalQuantity: 10, // sum of all product-quantity
-            totalProductsQuantity: 0,
+            totalQuantity: 0,
             
             minCashbackValue: 50,
             maxCashbackValue: 500,
@@ -247,15 +304,14 @@ $isDuplicate = $isDuplicate ?? null;
             
             minimumInoiceValue: 250,
             invoiceStepDifference: 100, // Ex - for each 100 Rs after minimumInoiceValue there will be increment of cashbackIncrementValue
+            invoiceValue: +$('#totalAmount').text(),
         }
-
-        // var cashbackRules = {}
 
         $.each(products, (index, product) => {
             // product(s) purchased //
             if(product.quantity) {
                 metaData['purchasedProducts'].push(product);
-                metaData.totalProductsQuantity += product.quantity;
+                metaData.totalQuantity += product.quantity;
             }
             if(product.minQuantity) {
                 var minQuantityProducts = {
@@ -273,22 +329,18 @@ $isDuplicate = $isDuplicate ?? null;
         if (
             ((metaData.minProducts && (metaData.purchasedProducts.length >= metaData.minProducts)) || !metaData.minProducts) // console.log("minimum products fulfilled");
             && ((min_quantity_products_count && metaData.minQuantityProductsQualified) || !min_quantity_products_count) // console.log("minimum quantity per product fulfilled");
-            && ((metaData.minTotalQuantity && (metaData.totalProductsQuantity >= metaData.minTotalQuantity)) || !metaData.minTotalQuantity) // console.log("minimum total products quantity fulfilled");
-            && ((metaData.minimumInoiceValue && (total >= metaData.minimumInoiceValue)) || !metaData.minimumInoiceValue) // console.log("minimum invoice value fulfilled");
+            && ((metaData.minTotalQuantity && (metaData.totalQuantity >= metaData.minTotalQuantity)) || !metaData.minTotalQuantity) // console.log("minimum total products quantity fulfilled");
+            && ((metaData.minimumInoiceValue && (metaData.invoiceValue >= metaData.minimumInoiceValue)) || !metaData.minimumInoiceValue) // console.log("minimum invoice value fulfilled");
         ) {
             metaData.cashbackCalculated = metaData.minCashbackValue;
-            if(metaData.invoiceStepDifference) metaData.cashbackCalculated += (Math.floor((total-metaData.minimumInoiceValue)/metaData.invoiceStepDifference)*metaData.cashbackIncrementValue);
-            console.log('all validations qualified', metaData.cashbackCalculated);
+            if(metaData.invoiceStepDifference) metaData.cashbackCalculated += (Math.floor((metaData.invoiceValue-metaData.minimumInoiceValue)/metaData.invoiceStepDifference)*metaData.cashbackIncrementValue);
         }
-
-        // Object.keys(metaData.minQuantityProducts).forEach(element => {
-            
-        //     console.log(metaData.minQuantityProducts[element]);
-        // });
         
-        console.log(metaData);
-        if(metaData.purchasedProducts.length) console.log(`${metaData.purchasedProducts.length} product(s) purchased`);
+        // console.log(metaData);
         if (metaData.cashbackCalculated > metaData.maxCashbackValue) metaData.cashbackCalculated = metaData.maxCashbackValue;
+
+        updateCashbackRules(metaData);
+
         cashback.val((metaData.cashbackCalculated).toFixed(2));
     }
 
@@ -310,6 +362,8 @@ $isDuplicate = $isDuplicate ?? null;
         // update cashback value
         updateCashbackValue();
     });
+
+    updateCashbackValue();
 </script>
 
 <?php
