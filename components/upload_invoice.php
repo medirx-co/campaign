@@ -172,7 +172,7 @@ $isDuplicate = $isDuplicate ?? null;
                                         </div>
                                         <div class="row mt-4">
                                             <div class="col">
-                                                <label>Cashback Rules: <small>(to avail)</small></label>
+                                                <label>Cashback Rules: <small><strong>(to avail)</strong></small></label>
                                                 <ul id="cashbackRules">
                                                     <li class="rule" id="requiredProducts">
                                                         <span qualified="0"></span>
