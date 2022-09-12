@@ -44,12 +44,12 @@ if(isset($_POST['add_campagin'])) {
         <div class="authincation h-100">
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
-                    <div class="col-md-8">
-                        <div class="authincation-content mt-4">
+                    <div class="col-md-10">
+                        <div class="authincation-content">
                             <div class="row no-gutters">
                                 <div class="col-xl-12">
-                                    <div class="auth-form">
-                                        <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1" style="font-size:30px;" ></i></a>
+                                    <a class="d-block text-right"><i class="fa fa-window-close text-danger mr-1 p-1" style="font-size:30px;" ></i></a>
+                                    <div class="auth-form p-5">
                                         <h4 class="text-start mb-4">Campaign (Weblink)</h4>
                                         <form action="" method="post">
                                             <div class="form-group">
