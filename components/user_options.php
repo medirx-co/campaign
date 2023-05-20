@@ -1,7 +1,8 @@
 <?php
 	// include_once('includes/header.php');
     $campaginId = $_GET['id'];
-    sessionUser($_GET['campaign_user_id']);
+    // sessionUser($_GET['campaign_user_id']);
+    session('campaign_id', $campaginId);
     $url = '/campaign/get/'.$campaginId.'/';
     $jsonResult = curlRequest($url);
 

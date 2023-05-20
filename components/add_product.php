@@ -51,9 +51,9 @@
                                                 </div>
                                                     <div class="form-group align-items-center col-md-6 col-lg-6 col-xl-6 col-12">
                                                         <div class="switcher">
-                                                            <label for="toggle-0" class="w-100"><strong>Mininimum Qty.</strong>
+                                                            <label for="toggle-1" class="w-100"><strong>Mininimum Qty.</strong>
                                                             <div class="d-inline-block float-lg-right">
-                                                                <input type="checkbox" id="toggle-0" class="toggle-switch"/>
+                                                                <input type="checkbox" id="toggle-1" class="toggle-switch"/>
                                                                 <span><small></small></span>
                                                             </div>
                                                             </label>

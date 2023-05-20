@@ -2,9 +2,10 @@
 	// include_once('includes/header.php');
     // $campaignId = $_REQUEST['id'] ?? null;
     // if($campaignId){
+        // $url = '/chemist/user/all/';
         $url = '/chemist/user/all/';
-        $jsonResult = curlRequest($url);
-        // print_r($jsonResult);
+        $jsonResult = curlRequest($url, true, ['campaign_id' => session('campaign_id')]);
+        print_r($jsonResult);
     // }
 ?>
         <!-- Assign Licenses Table Start   -->

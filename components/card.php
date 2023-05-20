@@ -1,7 +1,7 @@
 <?php
 	// include_once('includes/header.php');
     $url = '/CampaignPaymentMode/all/';
-    $jsonResult = curlRequest($url)->result;
+    $jsonResult = curlRequest($url, true, ['campaign_id' => session('campaign_id')])->result;
     
     $chemist_id = $_REQUEST['id'];
 
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="auth-form">
-                                        <form action="/template" method="post">
+                                        <form action="" method="post">
                                             <div class="form-group">
                                                 <label class="mb-1"><strong>Chemical Medical Store</strong></label>
                                                 <input type="text" class="form-control bg-light" value="<?php echo  $chemistDetail->name ?>" readonly>

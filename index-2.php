@@ -761,21 +761,21 @@ include_once('includes/header.php');
 										<li><a href="email-inbox.html">Inbox</a></li>
 										<li><a href="email-read.html">Read</a></li>
 									</ul> -->
-								</li>
+									<!-- </li> -->
 								
-							</ul>
-						</li>
-						<li class="nav-label">Reports</li>
-						<li>
-							<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-								<img src="https://img.icons8.com/color/48/000000/business-report.png" width="24px">
-								<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24" /><polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" /> <path d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z" fill="#000000" opacity="0.3" /><path d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z" fill="#000000" fill-rule="nonzero" /></g></svg> -->
-								<span class="nav-text">Report</span>
-							</a>
-							<ul aria-expanded="false">
-								<li><a href="/active_campagin">Active Campagin</a></li>
-								<!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a></li> -->
-							</ul>
+								</ul>
+							</li>
+							<li class="nav-label">Reports</li>
+							<li>
+								<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+									<img src="https://img.icons8.com/color/48/000000/business-report.png" width="24px">
+									<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24" /><polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" /> <path d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z" fill="#000000" opacity="0.3" /><path d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z" fill="#000000" fill-rule="nonzero" /></g></svg> -->
+									<span class="nav-text">Report</span>
+								</a>
+								<ul aria-expanded="false">
+									<li><a href="/active_campagin">Active Campagin</a></li>
+									<!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a></li> -->
+								</ul>
 							</li>
 							<li class="nav-label">Settings</li>
 							<li>
@@ -795,12 +795,12 @@ include_once('includes/header.php');
 									</li>
 									<li>
 										<div class="switcher">
-                                            <label for="toggle-0" class="w-100 mx-1"><strong>Dark Mode</strong>
-                                                <div class="d-inline-block float-lg-right">
+											<label for="toggle-0" class="w-100 mx-1"><strong>Dark Mode</strong>
+												<div class="d-inline-block float-lg-right">
 													<input type="checkbox" id="toggle-0" class="toggle_theme"/>
-                                                    <span><small></small></span>
-                                                </div>
-                                            </label>
+													<span><small></small></span>
+												</div>
+											</label>
 										</div>
 									</li>
 								</ul>
@@ -1006,16 +1006,29 @@ include_once('includes/footer.php');
 		<!-- Javascript-->
 	<!-- navbar-nav header-right -->
 	<script>
-		var element = document.body;
-			$('.toggle_theme').change( () => {
+		var body = document.body;
+		$('.toggle_theme').change( () => {
 			console.log("hi");
 			if($('.toggle_theme').prop('checked'))
 			{
-				element.setAttribute("data-theme-version","dark");	
+				body.setAttribute("data-theme-version","dark");
+				document.cookie = "theme" + "=" + "dark" + ";" + "30" + ";path=/";
 			}
 			else{
-				element.setAttribute("data-theme-version","light");
+				body.setAttribute("data-theme-version","light");
+				document.cookie = "theme" + "=" + "light" + ";" + "30" + ";path=/";
 			}
 		});
+		window.onload = () => {
+			(document.cookie).split(";").forEach(element => {
+				if(element.includes("theme")){
+					console.log(element.split("=")[1]);
+					body.setAttribute("data-theme-version",element.split("=")[1]);
+					if(element.split("=")[1]=="dark") $('.toggle_theme').prop('checked',true);
+					else $('.toggle_theme').prop('checked',false);
+				}
+			});
+			// element.setAttribute("data-theme-version","dark");	
+	}
 	</script>
 	

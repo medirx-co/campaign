@@ -42,7 +42,7 @@
                                                 <th>ASM Approve</th>
                                                 <th>RSM Approve</th>
                                                 <th>Status</th>
-                                                <th>Date Release</th>
+                                                <!-- <th>Release Date</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -51,21 +51,21 @@
                                                 # code...
                                             ?>
                                             <tr>
-                                                <th><?php echo ++$index ?></th>
+                                                <td><?php echo ++$index ?></td>
                                                 <td><?php echo $row->chemist_name ?></td>
                                                 <td><?php echo $row->chemist_city ?></td>
                                                 <td><?php echo $row->chemist_mobile ?></td>
                                                 <td><?php echo $row->cashback_code ?></td>
                                                 <td><?php echo $row->created_at ?></td>
-                                                <td><?php echo 5 ?></td>
-                                                <td><?php echo ($row->L2_manager_approval)?></td>
-                                                <td><?php echo $row->L3_manager_approval; ?></td>
+                                                <td><?php echo $row->cashback_amount ?></td>
+                                                <td><?php echo ($row->L2_manager_status)?></td>
+                                                <td><?php echo $row->L3_manager_status; ?></td>
                                                 <td><i class="text-center <?php echo ($row->status == 'pending')?'fa fa-hourglass-half text-warning' :(($row->status == 'approved')?'fa fa-check text-success' :'fa fa-times text-danger');?>"> <?php echo ($row->status == 'pending')? 'Pending' :(($row->status == 'approved')?'Approved' :'Rejected');?></i></td>
-                                                <td>Date of paymeent release</td>
+                                                <!-- <td>Date of paymeent release</td> -->
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="/cashback_details" class="text-info btn-sm sharp p-1 mx-1"><i class="fa fa-eye"></i></a>
-                                                        <a href="/upload_invoice/<?php echo $row->id;?>" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-upload"></i></a>
+                                                    <a href="<?php if(empty($row->invoice_number)):?>javascript:void(0);<?php else: echo "/cashback_details/".$row->id?><?php endif;?>" class="text-info btn-sm sharp p-1 mx-1" onclick="<?php if(empty($row->invoice_number)):?>invoiceRequired();<?php endif;?>"><i class="fa fa-eye"></i></a>
+                                                        <?php if(empty($row->invoice_number)):?><a href="/upload_invoice/<?php echo $row->id;?>" class="btn btn-dark shadow btn-sm sharp mr-1"><i class="fa fa-upload"></i></a><?php else:?><a href="#" class="btn btn-info shadow btn-sm sharp mr-1"><i class="fa fa-pencil"></i></a><?php endif;?>
                                                         <a href="#" class="text-danger btn-sm sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
@@ -88,6 +88,10 @@
 	// include_once('includes/footer.php');
 ?>
         <script>
+            function invoiceRequired() {
+                alert("Please add Invoice to view it's details !!!");
+            }
+
             function getUrlParams(dParam) {
                 var dPageURL = window.location.search.substring(1),
                     dURLVariables = dPageURL.split('&'),

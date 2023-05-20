@@ -4,8 +4,7 @@
 // print_r($_REQUEST);
 $orgId = $_REQUEST['id'] ?? null;
 if($orgId) {
-    $getOrgData = "/organisation/get/$orgId/";
-    $orgDataResult = json_decode(curlRequest($getOrgData))->result;
+    $orgDataResult = curlRequest("/organisation/get/{$orgId}/")->result;
     // print_r($orgDataResult);
 }
 
@@ -29,7 +28,10 @@ if(isset($_POST['add_organisation'])) {
     $result = curlRequest('/organisation/update/'.$_REQUEST['id'].'/', true, $orgData);
     // print_r($_REQUEST);
     
-    if($result) echo "<script>alert('Successfully Edited!')</script>";
+    if($result) {
+        echo "<script>alert('Successfully Edited!');";
+        redirect("/org_list");
+    }
     else echo "<script>alert('Something went wrong!')</script>";
 }
 
@@ -67,7 +69,7 @@ if(isset($_POST['add_organisation'])) {
                                             </div>
                                             <div class="text-center">
                                                 
-                                             <button type="submit" class="btn btn-primary btn-block" name="<?php echo $orgId ? "edit_org": "add_organisation" ?>"> <?php echo ($orgId ? "Upadte" : "Add")?></button>
+                                             <button type="submit" class="btn btn-primary btn-block" name="<?php echo $orgId ? "edit_org": "add_organisation" ?>"> <?php echo ($orgId ? "Update" : "Add")?></button>
                                             </div>
                                         </form>
                                     </div>

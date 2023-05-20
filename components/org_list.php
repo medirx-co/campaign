@@ -2,21 +2,20 @@
 
 
 if($_REQUEST['pageName'] == "del_org") {
-    $result = BASE_API_URL.'/organisation/delete/'.$_REQUEST['id'].'/';
-    $jsonResult = json_decode(file_get_contents($result));
+    $jsonResult = curlRequest("/organisation/delete/{$_REQUEST['id']}/");
     // $result = curlRequest('/organisation/delete/'.$_REQUEST['id'].'/', null);   
     
-    if($jsonResult) {
-        echo "<script>alert('Successfully Deleted!')</script>";
-        header('Location: /org_list');
-    }
-    else echo "<script>alert('Something went wrong!')</script>";
+    if($jsonResult->status == 'success') echo "<script>alert('Successfully Deleted!')</script>";
+    else echo `<script>alert("Something went wrong!")</script>`;
+    redirect('/org_list');
 }
 
 
-$orgList = BASE_API_URL.'/organisation/all/';
+// $orgList = BASE_API_URL.;
 // $jsonResult = json_decode(file_get_contents($orgList), true);
-$jsonResult = json_decode(file_get_contents($orgList));
+// echo $orgList;
+// $jsonResult = json_decode(file_get_contents($orgList));
+$jsonResult = curlRequest('/organisation/all/');
 
 
 ?>

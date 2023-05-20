@@ -1,19 +1,52 @@
 <?php
 // include_once('includes/header.php');
-$url = "/CashbackCard/get/".$_REQUEST['id']."/";
-$jsonResult = curlRequest($url)->result;
-// print_r($jsonResult);
-
-if (isset($_POST['check_duplicacy'])) {
-    $parameters = [
-        'invoice_number' => $_POST['invoice_number']
-    ];
-    $isDuplicate = curlRequest("/CashbackCard/checkDuplicate/", true, $parameters)->result;
-    // print_r($isDuplicate);
-
-    $products = curlRequest("/product/user/all/")->result;
+try {
+    $url = "/CashbackCard/get/".$_REQUEST['id']."/";
+    $cashback = curlRequest($url)->result;
+    $statuses = curlRequest("/status/all/")->result;
+    $campaign = curlRequest("/campaign/user/current/")->result;
+    print_r($cashback);
+    echo "<br><br>";
+    print_r($campaign);
+    
+    $isDuplicate = null;
+    
+    if (isset($_POST['invoice_number'])) {
+        $parameters = [
+            'invoice_number' => $_POST['invoice_number']
+        ];
+        $isDuplicate = curlRequest("/CashbackCard/checkDuplicate/", true, $parameters)->result;
+        echo "isDuplicate - ";
+        print_r($isDuplicate);
+    
+        $products = curlRequest("/product/user/all/")->result;
+        // print_r($_REQUEST);
+        // echo "----------";
+        // print_r($_FILES);
+        // echo "----------";
+        // echo 
+        if (isset($_REQUEST['invoice-upload'])) {
+            $parameters['cashback_card_id'] = $_REQUEST['cbc-id'] ?? throw new Exception('Something went wrong');
+            $parameters['cashback_value'] = $_REQUEST['cashback-value'] ?? 0;
+            $parameters['invoice_status'] = $_REQUEST['invoice-status'] ?? 1;
+            $parameters['comment'] = $_REQUEST['comment'] ?? null;
+            $parameters['L1_status'] = $_REQUEST['invoice-status'] ?? null;
+            $parameters['invoice_file'] = isset($_FILES['invoice-file']) ? curl_file_create($_FILES['invoice-file']['tmp_name'], "image/png", 'invoice-file.png') : null;
+            $parameters['product-quantities'] = json_encode($_REQUEST['quantity']);
+            $parameters['progress'] = "INVOICE_APPROVAL_REQUIRED";
+            $addInvoice = curlRequest("/cashbackCard/addInvoice/", true, $parameters);
+            print_r($addInvoice);
+            if($addInvoice->affected_rows) {
+                echo "<script>alert('Invoice Added Successfully.');</script>";
+                // $l1_manager = curlRequest("/chemist/get/{$}");
+                // mail();
+            }
+        }
+    }
+    $isDuplicate = $isDuplicate ?? null;
+} catch (\Throwable $th) {
+    echo $th->getCode().", ".$th->getMessage();
 }
-$isDuplicate = $isDuplicate ?? null;
 ?>
 <style>
     input.quantity {
@@ -58,17 +91,17 @@ $isDuplicate = $isDuplicate ?? null;
                                         <div class="row">
                                             <div class="col">
                                                 <label for="">Cashback Code : </label>
-                                                <input type="text" class="form-control" placeholder="" value="<?php echo $jsonResult->cashback_code; ?>">
+                                                <input type="text" class="form-control" placeholder="" value="<?php echo $cashback->cashback_code; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="">Card Generated Date : </label>
-                                                <input type="text" class="form-control" placeholder="" value="<?php echo $jsonResult->created_at; ?>" >
+                                                <input type="text" class="form-control" placeholder="" value="<?php echo $cashback->created_at; ?>" >
                                             </div>
                                         </div>
                                         <div class="form-group mt-3">
                                             <label for="">Chemist Name : </label>
                                             <input type="text" class="form-control email" id=""
-                                                placeholder="" name="" value="<?php echo $jsonResult->chemist_name; ?>">
+                                                placeholder="" name="" value="<?php echo $cashback->chemist_name; ?>">
                                         </div>
                                         <div class="row mt-2">
                                             <!-- <div class="col">
@@ -77,23 +110,24 @@ $isDuplicate = $isDuplicate ?? null;
                                             </div> -->
                                             <div class="col-12">
                                                 <label for="">Manager Name : </label>
-                                                <input type="text" class="form-control" placeholder="" value="<?php echo $jsonResult->chemist_manager_name; ?>">
+                                                <input type="text" class="form-control" placeholder="" value="<?php echo $cashback->chemist_manager_name; ?>">
                                             </div>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col">
                                                 <label for="">Mobile : </label>
-                                                <input type="Number" class="form-control" placeholder="" value="<?php echo $jsonResult->chemist_mobile; ?>">
+                                                <input type="Number" class="form-control" placeholder="" value="<?php echo $cashback->chemist_mobile; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="">City : </label>
-                                                <input type="text" class="form-control" placeholder="" value="<?php echo $jsonResult->chemist_city; ?>">
+                                                <input type="text" class="form-control" placeholder="" value="<?php echo $cashback->chemist_city; ?>">
                                             </div>
                                         </div>
                                         
                                     </fieldset>
                                 <!-- </form> -->
-                                <form method="post">                                
+                                <form method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="cbc-id" value="<?php echo $cashback->id;?>">
                                     <fieldset class="form-group border p-3">
                                     <legend class="w-auto px-2">Invoice Validatation</legend>
                                     <div class="row mt-2 align-items-end">
@@ -101,16 +135,16 @@ $isDuplicate = $isDuplicate ?? null;
                                             <label for="">Invoice Number : </label>
                                             <input type="text" class="form-control" placeholder="" name="invoice_number" value="<?php echo $parameters['invoice_number'] ?? null;?>">
                                         </div>
-                                        <?php if ($isDuplicate !== false):?>
+                                        <?php // if ($isDuplicate !== false):?>
                                         <div class="col">
                                             <button type="submit" class="btn btn-primary" name="check_duplicacy">Check
                                                 Dupliacy</button>
                                         </div>
-                                        <?php endif;?>
+                                        <?php // endif;?>
                                     </div>
-                                </form>
+                                <!-- </form> -->
                                 <?php if ($isDuplicate === false):?>
-                                <form>
+                                <!-- <form method="post"> -->
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table id="products" class="table table-hover table-responsive-sm" style="min-width: 845px">
@@ -129,24 +163,8 @@ $isDuplicate = $isDuplicate ?? null;
                                                     <tr>
                                                         <th><?php echo ++$index;?></th>
                                                         <th> <label for="prod-<?php echo $index;?>" class="name"><?php echo $product->name;?></label></th>
-                                                        <!-- <td>
-                                                            <div class="dropdown">
-                                                                <button
-                                                                    class="btn btn-sm btn-outline-info dropdown-toggle"
-                                                                    type="button" data-toggle="dropdown"
-                                                                    aria-haspopup="true" aria-expanded="false">
-                                                                    Choose
-                                                                </button>
-                                                                <div class="dropdown-menu"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Approve</a>
-                                                                    <a class="dropdown-item" href="#">Rejected</a>
-                                                                    <a class="dropdown-item" href="#">Pending</a>
-                                                                </div>
-                                                            </div>
-                                                        </td> -->
                                                         <td>Rs. <span class="float-right rate"><?php echo $product->ptr_value;?></span></td>
-                                                        <td class="text-center"><input type="number" class="quantity" name="quantity[]" id="prod-<?php echo $index;?>" min="0" value="0" min-quantity="<?php echo $product->min_order_qty;?>"></td>
+                                                        <td class="text-center"><input type="number" class="form-control quantity" name="quantity[<?php echo $product->id;?>]" id="prod-<?php echo $index;?>" min="0" value="0" min-quantity="<?php echo $product->min_order_qty;?>"></td>
                                                         <td>Rs. <span class="float-right amount">0.00</span></td>
                                                     </tr>
                                                     <?php endforeach;?>
@@ -167,7 +185,7 @@ $isDuplicate = $isDuplicate ?? null;
                                         <div class="row justify-space-between align-items-center">
                                             <div class="col-4">
                                                 <label for="">Cashback Value : </label>
-                                                <input type="Number" class="form-control bg-light text-right" id="cashbackValue" value="0.00" readonly>
+                                                <input name="cashback-value" type="text" class="form-control text-right" id="cashbackValue" value="0.00" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-4">
@@ -192,43 +210,46 @@ $isDuplicate = $isDuplicate ?? null;
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="row mt-2">
+                                        <div class="row mt-4">
                                             <div class="col">
                                                 <!-- <label for="">Upload Invoice : </label> -->
                                                 <label> Upload Invoice :
-                                                    <input type="file" id="file" style="display: none;">
-                                                    <img
-                                                        src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-Upload-16px-set-others-inmotus-design.png" />
+                                                    <input type="file" id="file" style="display: none;" name="invoice-file">
+                                                    <img src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-Upload-16px-set-others-inmotus-design.png" style="position: absolute; top: 0; bottom: 0; margin: auto; transform: translateX(20px);"/>
                                                     <!-- Upload Invoice -->
                                                 </label>
                                             </div>
                                             <div class="col">
-                                                <button type="submit" class="btn btn-primary btn-customized btn-sm">View
-                                                    Invoice</button>
+                                                <a class="border-bottom text-info font-weight-bold" href="#">View Invoice</a>
                                             </div>
 
                                         </div>
-                                        <div class="form-group mt-3">
+                                        <div class="form-group mt-4">
                                             <label for="">Status : </label>
-                                            <select class="form-control">
-                                                <option>Open this select menu</option>
-                                                <option>Approve</option>
-                                                <option>Rejected</option>
-                                                <option>Pending</option>
+                                            <select class="form-control" name="invoice-status">
+                                                <option selected disabled> --- SELECT --- </option>
+                                                <?php foreach($statuses as $status):?>
+                                                <option value="<?php echo $status->id;?>"><?php echo ucfirst($status->name);?></option>
+                                                <?php endforeach;?>
+                                                <!-- <option>Reject</option>
+                                                <option>Pending</option> -->
                                             </select>
                                         </div>
-                                        <div class="form-group mt-3">
-                                            <textarea class="form-control" name="editor1" rows="3"></textarea>
+                                        <div class="form-group mt-4">
+                                            <label for="">Comment <small>(optional)</small> : </label>
+                                            <textarea class="form-control" name="comment" rows="3"></textarea>
                                         </div>
                                         <!-- Submit Button  -->
-                                        <div class="form-group row text-center">
+                                        <div class="form-group row text-center mt-4">
                                             <div class="col">
-                                                <button type="submit" class="btn btn-primary btn-customized">Submit</button>
+                                                <button name="invoice-upload" type="submit" class="btn btn-primary-customized">Submit</button>
                                             </div>
                                         </div>
                                     </fieldset>
+                                    <?php elseif ($isDuplicate === true) :?>
+                                        <script>alert("Duplicate Invoice Number\nPlease Try with another one ...");</script>
+                                    <?php endif;?>
                                 </form>
-                                <?php endif;?>
                             </div>
                         </div>
                     </div>
@@ -241,7 +262,7 @@ $isDuplicate = $isDuplicate ?? null;
 <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
 <!-- Raise Ticket -->
 <script>
-    CKEDITOR.replace('editor1');
+    // CKEDITOR.replace('comment');
 </script>
 <script>
 
@@ -293,16 +314,16 @@ $isDuplicate = $isDuplicate ?? null;
             minQuantityProducts: {},
             minQuantityProductsQualified: true,
             
-            minProducts: 2, // could be null to skip product count validation
-            minTotalQuantity: 10, // sum of all product-quantity
+            minProducts: <?php echo $campaign->min_invoice_products;?>, // could be null to skip product count validation
+            minTotalQuantity:  <?php echo $campaign->min_product_qty;?>, // sum of all product-quantity
             totalQuantity: 0,
             
-            minCashbackValue: 50,
-            maxCashbackValue: 500,
+            minCashbackValue: <?php echo $campaign->min_cashback_amt; ?>,
+            maxCashbackValue: <?php echo $campaign->max_cashback_amt; ?>,
             cashbackIncrementValue: 50, // could be null to skip and made a fixed cashback value on any amount
             cashbackCalculated: 0,
             
-            minimumInoiceValue: 250,
+            minimumInoiceValue: <?php echo $campaign->min_invoice_amt; ?>,
             invoiceStepDifference: 100, // Ex - for each 100 Rs after minimumInoiceValue there will be increment of cashbackIncrementValue
             invoiceValue: +$('#totalAmount').text(),
         }

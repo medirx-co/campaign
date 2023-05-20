@@ -1,5 +1,68 @@
 <?php
 	// include_once('includes/header.php');
+    try {
+
+        $user = curlRequest("/user/profile/")->result;
+        $dict_role_columns = [
+            'TM' => "L1_manager_status",
+            'ASM' => "L2_manager_status",
+            'RSM' => "L3_manager_status"
+        ];
+        print_r($user);
+        $role_column = $dict_role_columns[$user->role] ?? null;
+        echo $role_column;
+    
+        $post_action = $_POST['action'] ?? null;
+        $parameters = [
+            'id' => $_REQUEST['id'],
+            'comment' => $_REQUEST['comment'] ?? null,
+        ];
+        if($post_action) {
+            if ($post_action == 'approve') {
+                $parameters[$role_column] = "";
+            } elseif ($post_action == 'reject') {
+                $parameters[$role_column] = "";
+                
+            }
+            curlRequest("/cashbackCard/update/", true, $parameters);
+        }
+    
+        $cashback = curlRequest("/cashbackcard/get/".$_REQUEST['id']."/")->result;
+        $products = curlRequest("/invoiceproducts/invoice/".$_REQUEST['id']."/")->result;
+        print_r($cashback);
+        // echo "=========";
+        // print_r($products);
+        $totalAmount = "0.00";
+    
+        // initatePayment
+        if (isset($_POST['initiatePayment'])) {
+            $parameters = [
+                'cashbackCardId' => $_REQUEST['id'] ?? throw new Exception("Cann't process payment"),
+            ];
+    
+            $url = "/payment/";
+    
+            switch ($cashback->campaign_cashback_mode_id) {
+                case 1:
+                    # paytm wallet
+                    $url .= "paytm/";
+                    break;
+                
+                default:
+                    # not allowed...
+                    throw new Exception("Cann't process payment for cashback mode: ".$cashback->campaign_cashback_mode);
+            }
+            echo $url;
+            $result = curlRequest($url, true, $parameters);
+            echo "============ transaction ===========";
+            print_r ($result);
+        }
+    } catch (Throwable $th) {
+        echo "<br>Something Went Wrong";
+        echo "<br>Code: ".$th->getCode();
+        echo "<br>Message: ".$th->getMessage();
+        echo "<br>Trace: ".$th->getTraceAsString();
+    }
 ?>
         <!-- Cashback Report Start   -->
 
@@ -7,14 +70,15 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Dr Gouranga Sardar</h4>
-                            <span>9734544201</span>
-                            <p>Kolkata</p>
-                            <p>Stockist: New united Agency</p>
+                            <h4><?php echo $cashback->chemist_name;?></h4>
+                            <span><?php echo $cashback->chemist_mobile;?></span>
+                            <p><?php echo $cashback->chemist_city;?></p>
+                            <!-- <p>Stockist: New united Agency</p> -->
                         </div>
                     </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mb-5 d-flex">
-                       <h5>6-Jul</h5>
+                    <div class="col-sm-6 p-md-0 mb-5 d-flex flex-column">
+                       <p><strong>Cashback Card Genereated: </strong><?php echo $cashback->created_at;?></p>
+                       <P><strong>Cashback Mode: </strong><?php echo $cashback->campaign_cashback_mode;?></P>
                     </div>
                 </div>
             
@@ -28,57 +92,79 @@
                                             <tr>
                                                 <th>Product Name</th>
                                                 <th>Qty</th>
+                                                <th>Rate</th>
                                                 <th>Amount</th>
-                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($products as $product):?>
                                             <tr>
-                                                <th>Med-1</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <th><?php echo $product->product_name?></th>
+                                                <td><?php echo $product->quantity?></td>
+                                                <td>Rs. <span class="float-right"><?php echo number_format($product->product_ptr_value, 2)?></span></td>
+                                                <td>Rs. <span class="float-right"><?php echo number_format($product->product_amount, 2); $totalAmount += $product->product_amount;?></span></td>
                                             </tr>
-                                            <tr>
+                                            <?php endforeach;?>
+                                            <!-- <tr>
                                                 <th>Med-2</th>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" class="text-right"><strong>Total</strong></td>
+                                                <td>Rs. <span class="float-right"><?php echo number_format((float)$totalAmount, 2);?></span></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
-                                    <div class="row mx-5">
-                                        <div class="col">
-                                            <a href=""><img src="https://img.icons8.com/material-outlined/96/40C057/ok--v1.png" alt="" class="text-center" style="width: 40px;"></a>
-                                            <div>POD Upload</div>
+                                    <div class="row m-5">
+                                        <div class="col text-center">
+                                            <i class="fa-2x fa fa-<?php echo ($cashback->is_invoice_uploaded)? "check-circle-o text-success" : "times-circle-o text-danger";?>"></i>
+                                            <div class="mt-2"><b>Invoice Uploaded</b></div>
+                                            <div><a href="">Click Here</a></div>
                                         </div>
-                                        <div class="col">
-                                            <a href=""><img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;"></a>
-                                            <div>POD Upload</div>
+                                        <div class="col text-center">
+                                            <i class="fa-2x fa fa-<?php echo ($cashback->L2_manager_status=='approved')? "check-circle-o text-success" : (($cashback->L2_manager_status=='rejected') ? "times-circle-o text-danger" : "hourglass-half text-secondary");?>"></i>
+                                            <div class="mt-2"><b>ASM Approved</b></div>
                                         </div>
-                                        <div class="col">
-                                        <a href=""><img src="https://img.icons8.com/material-outlined/96/40C057/ok--v1.png" alt="" class="text-center" style="width: 40px;"></a>
-                                            <div>POD Upload</div>
+                                        <div class="col text-center">
+                                            <i class="fa-2x fa fa-<?php echo ($cashback->L3_manager_status=='approved')? "check-circle-o text-success" : (($cashback->L3_manager_status=='rejected') ? "times-circle-o text-danger" : "hourglass-half text-secondary");?>"></i>
+                                            <div class="mt-2"><b>RSM Approved</b></div>
                                         </div>
-                                        <div class="col">
-                                            <a herf="" ><img src="https://img.icons8.com/external-android-line-2px-amoghdesign/96/FA5252/external-close-multimedia-line-24px-android-line-2px-amoghdesign.png" alt="" style="width: 40px;"></a>
-                                            <div>POD Upload</div>
+                                        <div class="col text-center">
+                                        <i class="fa-2x fa fa-<?php echo ($cashback->status_id==2)? "check-circle-o text-success" : (($cashback->status_id==1) ? "times-circle-o text-danger" : "hourglass-half text-secondary");?>"></i>
+                                            <div class="mt-2"><b>Voucher Release<b></div>
                                         </div>
                                     </div>
                                     <div class="row mt-4  align-items-center justify-space-between">
                                         <div class="col-lg-6 col-12">
-                                            <h6><strong>Cashback Value</strong></h6>
+                                            <h6><strong>Cashback Value: Rs. <span class="text-primary"><?php echo $cashback->cashback_amount ?? "0.00";?></span></strong></h6>
                                         </div>
                                         <div class="col-lg-6 col-12 mb-2" style="text-align: end;">
-                                            <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View Invoice</button></a>
+                                            <form method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm" name="initiatePayment">Initaite Payment</button>
+                                            </form>
                                         </div>
-
-                                        <!-- <div class="col-6 p-md-0 mt-2 mt-sm-0 mb-2 my-3 d-flex">
-                                            <button type="submit" class="btn btn-primary btn-sm"><a  href="javascript:void(0);" class="text-white" id="">View Invoice</button></a>
-                                        </div> -->
                                     </div>    
-                                    
                                 </div>
+                                <?php if(in_array($cashback->$role_column, [null, 'pending'])):?>
+                                <div class="row mt-4">
+                                    <div class="col">
+                                        <form action="" method="post">
+                                            <div class="form-group">
+                                                <label for="">Comments <small><b>(optional)</b></small></label>
+                                                <textarea name="comment" id="" cols="30" rows="10" class="form-control"></textarea>
+                                            </div>
+                                            <div class="form-group text-right">
+                                                <button class="btn btn-success shadow" name="action" value="approve">Approve</button>
+                                                <button class="btn btn-danger shadow" name="action" value="reject">Reject</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <?php endif;?>
                             </div>
                         </div>
                     </div>

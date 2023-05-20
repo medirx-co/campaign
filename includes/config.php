@@ -11,22 +11,29 @@ function sessionUser(int|string $user = null) {
 	return $_SESSION['user'] ?? null;
 }
 
+function session(string $key, $value = null) {
+	if (!empty($value)) $_SESSION[$key] = $value;
+	return $_SESSION[$key] ?? $value;
+}
+
 if($_REQUEST['pageName'] != 'login') sessionUser() ?? redirect('/login');
 
 // echo "sesion";
 // print_r($_COOKIE);
 // print_r($_SESSION);
 // echo session_id();
-define('BASE_API_URL', 'https://staging.tecmetis.com/api');
+define('BASE_API_URL', 'http://localhost/api');
+// define('BASE_API_URL', 'https://staging.tecmetis.com/api');
 
 function redirect(string $url) {
-	return header("Location: ".$url);
+	header("Location: ".$url);
 }
 
 
 function curlRequest($url, bool $isPOST = false, $postFields = null) {
 	$headers = array(
 		// 'Cookie: PHPSESSID='.session_id(),
+		// "Content-Type: multipart/form-data",
 	);
 
 	if($_REQUEST['pageName'] != 'login') $headers[] = ("X-Auth-User: ".sessionUser() ?? redirect("/login"));
